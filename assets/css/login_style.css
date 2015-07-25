@@ -1,0 +1,162 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,200italic,400italic,700italic);
+
+html {
+    background: url(../img/index_bg1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.Bender {
+    font-family: Bender;
+}
+
+p, h1 {
+    /*font-family: Bender;*/
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+    transition: color 0.3s ease 0s;
+}
+
+.site-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%; /* For at least Firefox */
+    min-height: 100%;
+    -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
+}
+
+.site-wrapper-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.cover-container {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+    /* padding: 30px; */
+}
+
+body {
+    background-color: transparent;
+    color: white;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+#main-content {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+
+#main-body {
+    /* padding: 50px; */
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+}
+
+#main-heading, #main-footer {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.17);
+    background-image: none;
+}
+
+#main-heading {
+
+}
+
+#main-footer {
+}
+
+* {
+    border-radius: 0 !important;
+}
+
+.form-control {
+    border: none;
+}
+
+input {
+    color: black;
+    background-color: transparent;
+    padding-left: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+
+}
+
+.btn {
+    font-family: Bender;
+}
+
+.input-group-addon {
+    color: gray;
+    background: none;
+    border: none;
+    /* margin-right: 10px; */
+}
+
+.input-group {
+    border: 1px solid rgba(255, 255, 255, 0.63);
+    background-color: white;
+}
+
+a {
+    color: #588AB6;
+}
+
+a:hover {
+    color: #428BCA;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+.form-control:-moz-placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+.form-control::-moz-placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+.form-control:-ms-input-placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+#logo {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%22160px%22%20height%3D%2256px%22%20viewBox%3D%220%200%20160%2056%22%20enable-background%3D%22new%200%200%20160%2056%22%20xml%3Aspace%3D%22preserve%22%3E%3Cg%3E%20%3Cpath%20fill%3D%22%23231F20%22%20d%3D%22M127.292%2C3.983h4.203V2.435H116.85v1.548h4.226v29.468h-4.226v1.535h14.646v-1.535h-4.203V3.983z%20%20%20M153.941%2C34.979v-1.526h-4.488V3.656c6.861-0.342%2C8.031%2C1.126%2C8.908%2C7.351h1.512l-0.536-8.572h-26.056l-0.53%2C8.572h1.544%20%20c0.887-6.226%2C2.044-7.693%2C8.918-7.351v29.796h-4.494v1.526H153.941%22%2F%3E%20%3Cpath%20fill%3D%22%23231F20%22%20d%3D%22M55.751%2C16.359V3.946h4.24c4.338%2C0%2C5.942%2C1.09%2C5.942%2C6.562c0%2C4.363-1.8%2C5.851-6.187%2C5.851H55.751%20%20%20M114.063%2C3.946V2.41h-12.002l-7.054%2C22.254L88.193%2C2.41H76.237v1.536h4.206v29.458L75.9%2C33.4c-4.22%2C0.102-4.284-3.496-4.265-4.239%20%20c0.058-7.933-1.714-10.801-9.315-11.976V17.08c4.533-0.479%2C10.33-1.769%2C10.33-7.264c0-6.768-6.317-7.405-11.644-7.405h-15.69v1.536%20%20h4.2v29.471h-4.2v1.532h14.636v-1.532h-4.2V17.879c2.7-0.107%2C5.74%2C0.581%2C7.114%2C1.763c1.267%2C1.074%2C1.95%2C4.396%2C1.95%2C8.427%20%20c0%2C4.977%2C2.571%2C6.861%2C7.498%2C6.861h14.104v-1.525h-4.107V4.451h0.1l9.686%2C30.479h1.646l9.746-30.479h0.15v28.953h-4.191v1.527%20%20h14.617v-1.527h-4.194V3.946H114.063z%22%2F%3E%20%3Cpath%20fill%3D%22%23DC291E%22%20d%3D%22M19.07%2C0.48h-4.859v3.947H6.122v8.229H0.035V24.81h6.163v8.022h8.013v4.078h4.284%20%20c10.007%2C0%2C18.838-8.08%2C18.838-18.168C37.332%2C8.718%2C29.094%2C0.48%2C19.07%2C0.48%22%2F%3E%20%3Cpath%20fill%3D%22%23231F20%22%20d%3D%22M49.503%2C44.721c0-0.273-0.147-0.4-0.4-0.4h-0.787v-1.57h1.844c0.821%2C0%2C1.169%2C0.348%2C1.169%2C1.168v7.141%20%20c0%2C1.934%2C1.223%2C3.086%2C3.086%2C3.086s3.086-1.152%2C3.086-3.104v-7.122c0-0.82%2C0.363-1.168%2C1.184-1.168h1.828v1.57h-0.786%20%20c-0.254%2C0-0.4%2C0.127-0.4%2C0.4v6.41c0%2C2.811-1.956%2C4.729-4.894%2C4.729c-2.959%2C0-4.93-1.918-4.93-4.729V44.721z%20M61.81%2C54.068h0.784%20%20c0.257%2C0%2C0.403-0.145%2C0.403-0.399V42.751h1.662l5.733%2C8.16c0.475%2C0.694%2C1.077%2C1.754%2C1.077%2C1.754h0.038c0%2C0-0.13-1.024-0.13-1.754%20%20v-6.992c0-0.821%2C0.348-1.168%2C1.189-1.168h1.826v1.569h-0.786c-0.256%2C0-0.401%2C0.127-0.401%2C0.402v10.918h-1.643l-5.751-8.162%20%20c-0.475-0.694-1.06-1.752-1.06-1.752h-0.036c0%2C0%2C0.109%2C1.039%2C0.109%2C1.752v6.992c0%2C0.823-0.348%2C1.17-1.169%2C1.17H61.81V54.068z%20%20%20M76.001%2C54.068h1.26v-9.75h-1.26v-1.567h4.255v1.567h-1.263v9.75h1.263v1.572h-4.255V54.068z%20M82.245%2C44.721%20%20c-0.111-0.33-0.294-0.4-0.603-0.4h-0.259v-1.57h1.024c0.914%2C0%2C1.223%2C0.2%2C1.514%2C1.059l2.831%2C7.942%20%20c0.239%2C0.694%2C0.494%2C1.771%2C0.494%2C1.771h0.036c0%2C0%2C0.238-1.076%2C0.494-1.771l2.828-7.942c0.312-0.858%2C0.603-1.059%2C1.517-1.059h1.024%20%20v1.57h-0.256c-0.33%2C0-0.494%2C0.072-0.604%2C0.4l-4.055%2C10.92H86.3L82.245%2C44.721L82.245%2C44.721z%20M95.393%2C44.318h-1.186V42.75h7.577%20%20c0.821%2C0%2C1.167%2C0.346%2C1.167%2C1.169v1.623h-1.661v-0.821c0-0.273-0.147-0.4-0.399-0.4h-3.67v4.035h4.508v1.57h-4.508v3.743%20%20c0%2C0.256%2C0.145%2C0.401%2C0.399%2C0.401h3.761c0.258%2C0%2C0.403-0.146%2C0.403-0.401v-0.821h1.679v1.625c0%2C0.82-0.347%2C1.168-1.167%2C1.168%20%20h-5.733c-0.824%2C0-1.17-0.347-1.17-1.168V44.318z%20M105.912%2C44.318h-1.188V42.75h5.625c2.264%2C0%2C3.854%2C1.423%2C3.854%2C3.779%20%20c0%2C2.154-1.407%2C3.213-2.318%2C3.412v0.037c0%2C0%2C0.327%2C0.166%2C0.547%2C0.584l1.555%2C3.088c0.18%2C0.383%2C0.474%2C0.42%2C0.91%2C0.42h0.238v1.57%20%20h-0.895c-1.004%2C0-1.37-0.127-1.79-0.969l-1.753-3.469c-0.327-0.604-0.565-0.694-1.278-0.694h-1.679v5.132h-1.826V44.318H105.912z%20%20%20M110.111%2C48.939c1.388%2C0%2C2.209-0.895%2C2.209-2.336c0-1.444-0.821-2.285-2.172-2.285h-2.412v4.621H110.111z%20M117.162%2C52.646%20%20c0%2C0%2C1.314%2C1.551%2C3.23%2C1.551c1.205%2C0%2C2.209-0.73%2C2.209-1.916c0-2.702-6.224-2.283-6.224-6.301c0-1.935%2C1.696-3.451%2C4.125-3.451%20%20c1.369%2C0%2C3.67%2C0.621%2C3.67%2C2.373v1.062h-1.681v-0.603c0-0.676-0.969-1.17-1.99-1.17c-1.387%2C0-2.264%2C0.767-2.264%2C1.734%20%20c0%2C2.61%2C6.207%2C2.027%2C6.207%2C6.264c0%2C1.971-1.532%2C3.67-4.09%2C3.67c-2.739%2C0-4.271-1.918-4.271-1.918L117.162%2C52.646L117.162%2C52.646z%20%20%20M126.107%2C54.068h1.262v-9.75h-1.262v-1.567h4.254v1.567h-1.258v9.75h1.258v1.572h-4.254V54.068z%20M136.171%2C44.318h-2.592%20%20c-0.259%2C0-0.403%2C0.127-0.403%2C0.4v0.823h-1.626v-1.698c0-0.822%2C0.276-1.094%2C1.097-1.094h8.873c0.824%2C0%2C1.096%2C0.273%2C1.096%2C1.094%20%20v1.698h-1.623v-0.821c0-0.273-0.145-0.4-0.403-0.4h-2.592v11.32h-1.826V44.318L136.171%2C44.318z%20M147.82%2C50.016l-3.268-5.238%20%20c-0.238-0.385-0.402-0.457-0.787-0.457h-0.363v-1.571h0.84c0.878%2C0%2C1.223%2C0.129%2C1.734%2C0.985l1.953%2C3.252%20%20c0.422%2C0.713%2C0.784%2C1.443%2C0.784%2C1.443h0.036c0%2C0%2C0.348-0.732%2C0.787-1.443l1.936-3.252c0.508-0.856%2C0.877-0.985%2C1.731-0.985h0.842%20%20v1.571h-0.345c-0.385%2C0-0.566%2C0.072-0.807%2C0.457l-3.248%2C5.238v5.625h-1.826V50.016L147.82%2C50.016z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 150px;
+    margin-left: -35px;
+}
+
+.hidden-space {
+    min-height: 200px;
+}
+
+.form-group {
+    border: 1px solid rgb(46, 61, 80);
+}
