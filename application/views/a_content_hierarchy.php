@@ -7,6 +7,7 @@
  */
 ?>
 
+
     <div class="admin-main">
         <div class="row">
             <div class="col-xs-3">
@@ -120,9 +121,9 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-</div>
 </div>
 </div>
 <script>
@@ -147,7 +148,4 @@
         $('#add-button').removeClass('hidden');
     });
 
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    })
 </script>

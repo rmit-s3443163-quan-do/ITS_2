@@ -51,7 +51,7 @@ class home extends CI_Controller  {
                 'uid' => $this->auth->userid(),
                 'uname' => $this->user_m->getName($this->auth->userid()),
                 'page_title' => 'ITS Homepage',
-                'view' => 'index_v'
+                'view' => 'index'
             );
 
         } else {
@@ -59,7 +59,7 @@ class home extends CI_Controller  {
             $data = array(
                 'page_title' => 'ITS Login',
                 'errors' => '',
-                'view' => 'login_v',
+                'view' => 'login',
 
             );
 

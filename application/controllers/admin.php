@@ -12,7 +12,7 @@ class Admin extends CI_Controller {
         parent::__construct();
 
         if (!$this->auth->loggedin()) {
-            redirect(base_url() . 'home/');
+            redirect(base_url('home/'));
         }
 
         $this->load->model('user_m');
@@ -21,77 +21,83 @@ class Admin extends CI_Controller {
 
     }
 
+    public function content($top = 'hierarchy') {
+        if (isAdmin()) {
+            $data = $this->getDefaultData();
+
+            $data['view'] = 'a_content_' . $top;
+            $data['topbar_selected'] = $top;
+            $data['topbar'] = 'a_topbar_content';
+            $data['sidebar'] = 'a_sidebar';
+            $data['sidebar_selected'] = 'content';
+
+            if ($top == 'question')
+                $data = $this->view_content_question($data);
+            else
+                $data = $this->view_content_hierarchy($data);
+
+            $this->loadView($data);
+        } else
+            $this->index();
+    }
+
+    private function view_content_hierarchy($data) {
+        $data['page_title'] = 'ITS Admin CP - ATS Manager - Hierarchy';
+        return $data;
+    }
+
+    private function view_content_question($data) {
+        $data['page_title'] = 'ITS Admin CP - ATS Manager - Question';
+        return $data;
+    }
+
     public function ats($top = 'question', $cate = 1, $action = '', $id = 1) {
         if (isAdmin()) {
 
+            $data = $this->getDefaultData();
+            $data['topbar_selected'] = $top;
+            $data['view'] = 'a_ats_' . $top;
+            $data['sidebar_selected'] = 'ats';
+
             if ($top == 'survey')
-                $data = $this->view_ats_survey($top, $cate, $action, $id);
+                $data = $this->view_ats_survey($data, $cate, $action, $id);
             else if ($top == 'result')
-                $data = $this->view_ats_result($top, $cate, $action, $id);
-            else {
-                $top = 'question';
-                $data = $this->view_ats_question($top, $cate, $action, $id);
-            }
+                $data = $this->view_ats_result($data, $cate, $action, $id);
+            else if ($top == 'question')
+                $data = $this->view_ats_question($data, $cate, $action, $id);
+            else
+                $data['view'] = 'a_ats_not_found';
 
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/a_sidebar', $data);
-            $this->load->view('templates/a_topbar_ats', $data);
-            $this->load->view($data['view'], $data);
-            $this->load->view('templates/footer');
+            $this->loadView($data);
 
-        } else {
-            $this->login();
-        }
+        } else
+            $this->index();
+
     }
 
-    private function view_ats_survey($top, $cate, $action, $id) {
-        $data = array(
-            'uid' => $this->auth->userid(),
-            'uname' => $this->user_m->getName($this->auth->userid()),
-            'sidebar_selected' => 'ats',
-            'topbar_selected' => $top,
-            'page_title' => 'ITS Admin CP - ATS Manager - Survey',
-            'view' => 'a_ats_' . $top . '_v'
-        );
-
+    private function view_ats_survey($data, $cate, $action, $id) {
+        $data['page_title'] = 'ITS Admin CP - ATS Manager - Survey';
         return $data;
     }
 
-    private function view_ats_result($top = '', $cate = '', $action = '', $id = '') {
-        $data = array(
-            'uid' => $this->auth->userid(),
-            'uname' => $this->user_m->getName($this->auth->userid()),
-            'sidebar_selected' => 'ats',
-            'topbar_selected' => $top,
-            'page_title' => 'ITS Admin CP - ATS Manager - Result',
-            'view' => 'a_ats_' . $top . '_v'
-        );
-
+    private function view_ats_result($data, $cate = '', $action = '', $id = '') {
+        $data['page_title'] = 'ITS Admin CP - ATS Manager - Result';
         return $data;
     }
 
-    private function view_ats_question($top = '', $cate = '', $action = '', $id = '') {
-
-        $data = array(
-            'uid' => $this->auth->userid(),
-            'uname' => $this->user_m->getName($this->auth->userid()),
-            'cate' => $cate,
-            'sidebar_selected' => 'ats',
-            'topbar_selected' => $top,
-            'page_title' => 'ITS Admin CP - ATS Manager - Question',
-            'view' => 'a_ats_' . $top . '_v'
-        );
+    private function view_ats_question($data, $cate = '', $action = '', $id = '') {
+        $data['page_title'] = 'ITS Admin CP - ATS Manager - Survey';
 
         if ($action == 'add')
-            $data['view'] = 'a_ats_' . $top . '_' . $action . '_v';
+            $data['view'] .= '_' . $action;
 
         if ($action == 'edit') {
-            $data['view'] = 'a_ats_' . $top . '_' . $action . '_v';
+            $data['view'] .= '_' . $action;
+
             if ($question = $this->question_m->get($id))
                 $data['question'] = $question;
-            else {
-                $data['view'] = 'a_ats_not_found_v';
-            }
+            else
+                $data['view'] = 'a_ats_not_found';
         }
 
         return $data;
@@ -118,20 +124,24 @@ class Admin extends CI_Controller {
         }
     }
 
+    private function view_login($data) {
+
+        $data['view'] = 'a_login';
+        $data['topbar'] = 'a_topbar_login';
+        $data['sidebar'] = 'a_sidebar_login';
+        $data['page_title'] = 'ITS - Admin Login';
+
+        return $data;
+    }
+
     public function index() {
-        if (isAdmin()) {
 
-            $data = array(
-                'uid' => $this->auth->userid(),
-                'uname' => $this->user_m->getName($this->auth->userid()),
-                'view' => 'admin_v',
-                'course_arr' => $this->course_m->getAll()
-            );
-            $this->load->view($data['view'], $data);
+        $data = $this->getDefaultData();
 
-        } else {
-            $this->login();
-        }
+        if (!isAdmin())
+            $data = $this->view_login($data);
+
+        $this->loadView($data);
 
     }
 
@@ -157,7 +167,6 @@ class Admin extends CI_Controller {
                     if ($this->user_m->isAdmin($uid)) {
                         $this->session->set_userdata(array('isAdmin' => $this->config->item('admin_code')));
                         $b = true;
-                        $this->index();
                     }
 
                 }
@@ -165,27 +174,39 @@ class Admin extends CI_Controller {
 
             if (!$b) {
                 $this->session->unset_userdata('isAdmin');
-                $this->login();
             }
-        } else
-            $this->index();
+        }
 
-    }
-
-    public function login() {
-        if (!isAdmin()) {
-            $data = array(
-                'view' => 'a_login_v'
-            );
-            $this->load->view($data['view'], $data);
-        } else
-            $this->index();
+        $this->index();
 
     }
 
     public function doLogout() {
         $this->session->unset_userdata('isAdmin');
         $this->index();
+    }
+
+    private function getDefaultData() {
+        return array(
+            'uid' => $this->auth->userid(),
+            'uname' => $this->user_m->getName($this->auth->userid()),
+
+            'sidebar' => 'a_sidebar',
+            'view' => 'a_ats_question',
+            'topbar' => 'a_topbar_ats',
+            'sidebar_selected' => '',
+            'topbar_selected' => '',
+
+            'page_title' => 'ITS - Admin Login'
+        );
+    }
+
+    private function loadView($data) {
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/' . $data['sidebar'], $data);
+        $this->load->view('templates/' . $data['topbar'], $data);
+        $this->load->view($data['view'], $data);
+        $this->load->view('templates/footer');
     }
 
 

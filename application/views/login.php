@@ -1,64 +1,65 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: JayDz
- * Date: 23/07/15
- * Time: 10:21 AM
- */
-?>
+<div class="site-wrapper">
 
-<html>
+    <div class="site-wrapper-inner">
 
-<?php
-if (isset($this->session->userdata['logged_in']))
-    header('Location: user_authentication/login');
-?>
-<head>
-    <title>Login</title>
-</head>
-<body>
-<?php
-if (isset($logout_msg)) {
-    echo '<div class="message">' . $logout_msg . '</div>';
-}
-?>
-<div id="main">
-    <div id="login">
-        <h2>Login Form</h2>
-        <hr/>
-        <?php
-        echo form_open('user_authentication/login', 'im_hidden_input', 'hahaha nobody see me');
+        <div class="cover-container">
 
-        echo '<div class="err_msg">';
-        if (isset($err_msg)) echo $err_msg;
-        echo validation_errors();
-        echo '</div><br/>';
-        echo form_label('Username: ');
-        $data = array(
-            'type' => 'text',
-            'name' => 'uid',
-            'id' => 'uid',
-            'placeholder' => 'username'
-        );
-        echo form_input($data) . '<br/>';
-        echo form_label('Password: ');
-        $data = array(
-            'type' => 'password',
-            'name' => 'pwd',
-            'id' => 'password',
-            'placeholder' => 'password'
-        );
-        echo form_input($data) . '<br/>';
-        $data = array(
-            'type' => 'submit',
-            'name' => 'submit',
-            'value' => 'Submit'
-        );
-        echo form_input($data) . '<br/>';
-        echo form_close();
-        ?>
-
+            <div class="inner cover">
+                <div class="container">
+                <div class="row">
+                    <div class="col-xs-offset-0 col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+                        <div id="logo"></div>
+                        <form action="<?= base_url() . 'home/login'?>" method="post">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </span>
+                                    <input type="text" name="uname" class="form-control" placeholder="username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-lock"></span>
+                                    </span>
+                                    <input type="password" name="upass" class="form-control" placeholder="password">
+                                </div>
+                            </div>
+                            <div>
+                            <button style="width: 100%;" type="submit" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-chevron-right"></span> let me in
+                            </button>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <a href="#"><em><input name="rmb" type="checkbox"> remember me</em></a>
+                                </label>
+                                <div class="pull-right">
+                                    <a href="#"><em>forget password</em></a>
+                                </div>
+                            </div>
+                            <div class="hidden-space">
+                                <?php if ($errors!=''): ?>
+                                <div class="alert alert-danger alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>Warning!</strong>
+                                    <ul>
+                                        <li>Username is required.</li>
+<!--                                                <li>Password is required.</li>-->
+                                    </ul>
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-</body>
-</html>
+<script>
+</script>

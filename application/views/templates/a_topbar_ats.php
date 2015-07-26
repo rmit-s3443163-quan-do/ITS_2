@@ -32,19 +32,19 @@ switch ($topbar_selected) {
             <div class="sub-inline">
                 <div class="<?= $result ?> sub-menu">
                     <span class="fa fa-tasks"></span>
-                    <a href="<?= base_url() ?>admin/ats/result">Results</a>
+                    <a href="<?= base_url('admin/ats/result') ?>">Results</a>
                 </div>
                 <div class="<?= $question ?> sub-menu">
                     <span class="fa fa-list-alt"></span>
-                    <a href="<?= base_url() ?>admin/ats/question">Questions</a>
+                    <a href="<?= base_url('admin/ats/question') ?>">Questions</a>
                 </div>
                 <div class="<?= $survey ?> sub-menu">
                     <span class="fa fa-pie-chart"></span>
-                    <a href="<?= base_url() ?>admin/ats/survey">Survey</a>
+                    <a href="<?= base_url('admin/ats/survey') ?>">Survey</a>
                 </div>
                 <div class="sub-panel pull-right">
                     <span class="glyphicon glyphicon-home"></span>
-                    <a style="color: white" href="<?= base_url() . 'home/' ?>">Homepage</a>
+                    <a style="color: white" href="<?= base_url('home/') ?>">Homepage</a>
                 </div>
             </div>
 

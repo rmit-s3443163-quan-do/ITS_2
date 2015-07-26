@@ -138,7 +138,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-6">
+        <div class="question col-xs-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
                     [<a href="<?= base_url() ?>admin/ats/question/2/add">

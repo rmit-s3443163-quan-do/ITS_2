@@ -8,6 +8,8 @@
 
 $dashboard = $content = $user = $ats = $system = '';
 
+$sidebar_selected = isset($sidebar_selected)?$sidebar_selected:'ats';
+
 switch ($sidebar_selected) {
     case 'dashboard':
         $dashboard = 'selected';
@@ -24,9 +26,6 @@ switch ($sidebar_selected) {
     case 'system':
         $system = 'selected';
         break;
-    default:
-        $dashboard = 'selected';
-        break;
 }
 
 ?>
@@ -39,7 +38,7 @@ switch ($sidebar_selected) {
         <div class="a-sidebar col-xs-3 col-sm-1">
             <span class="<?= $dashboard ?> glyphicon glyphicon-dashboard" data-toggle="tooltip" data-placement="right"
                   title="Dashboard"></span>
-            <a href="<?= base_url() ?>user_authentication/acourse">
+            <a href="<?= base_url('admin/content') ?>">
             <span class="<?= $content ?> glyphicon  glyphicon-list-alt" data-toggle="tooltip" data-placement="right"
                   title="Content Manager"></span>
             </a>
@@ -47,8 +46,8 @@ switch ($sidebar_selected) {
             <span class="<?= $user ?> glyphicon glyphicon-user" data-toggle="tooltip" data-placement="right"
                   title="User Manager"></span>
 
-            <a href="<?= base_url() ?>admin/ats">
-            <span class="<?= $ats ?> selected glyphicon fa fa-sitemap seperate" data-toggle="tooltip"
+            <a href="<?= base_url('admin/ats') ?>">
+            <span class="<?= $ats ?> glyphicon fa fa-sitemap seperate" data-toggle="tooltip"
                   data-placement="right"
                   title="ATS Manager"></span>
             </a>
@@ -56,6 +55,8 @@ switch ($sidebar_selected) {
             <span class="<?= $system ?> glyphicon seperate glyphicon-cog" data-toggle="tooltip" data-placement="right"
                   title="System Config"></span>
 
-            <span class="glyphicon glyphicon-off logout" data-toggle="tooltip" data-placement="right"
-                  title="Logout"></span>
+            <a href="<?= base_url(); ?>home/logout">
+                <span class="glyphicon glyphicon-off logout" data-toggle="tooltip" data-placement="right"
+                      title="Logout"></span>
+            </a>
         </div>
