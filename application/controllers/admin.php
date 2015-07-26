@@ -21,14 +21,114 @@ class Admin extends CI_Controller {
 
     }
 
+    public function dashboard($top = 'main') {
+        if (isAdmin()) {
+            $data = $this->getDefaultData('dashboard', $top);
+
+            $data['page_title'] = 'ITS Admin CP - Dashboard';
+
+            $this->loadView($data);
+        } else
+            $this->index();
+    }
+
+    public function config($top = 'main') {
+        if (isAdmin()) {
+            $data = $this->getDefaultData('config', $top);
+
+            $data['page_title'] = 'ITS Admin CP - Config';
+
+            $this->loadView($data);
+        } else
+            $this->index();
+    }
+
+    public function user($top = 'list') {
+        if (isAdmin()) {
+            $data = $this->getDefaultData('user', $top);
+
+            if ($top == 'mass_enrol')
+                $data = $this->view_user_mass_enrol($data);
+            else if ($top == 'contribute')
+                $data = $this->view_user_contribute($data);
+            else if ($top == 'queries')
+                $data = $this->view_user_queries($data);
+            else
+                $data = $this->view_user_list($data);
+
+            $this->loadView($data);
+        } else
+            $this->index();
+    }
+
+    private function view_user_list($data) {
+        $data['page_title'] = 'ITS Admin CP - Users - Lists';
+        return $data;
+    }
+
+    private function view_user_mass_enrol($data) {
+        $data['page_title'] = 'ITS Admin CP - Users - Mass Enrol';
+        return $data;
+    }
+
+    private function view_user_contribute($data) {
+        $data['page_title'] = 'ITS Admin CP - Users - Contribute';
+        return $data;
+    }
+
+    private function view_user_queries($data) {
+        $data['page_title'] = 'ITS Admin CP - Users - Queries';
+        return $data;
+    }
+
+
+    public function ats($top = 'question', $cate = 1, $action = '', $id = 1) {
+        if (isAdmin()) {
+
+            $data = $this->getDefaultData('ats', $top);
+
+            if ($top == 'survey')
+                $data = $this->view_ats_survey($data, $cate, $action, $id);
+            else if ($top == 'result')
+                $data = $this->view_ats_result($data, $cate, $action, $id);
+            else if ($top == 'question')
+                $data = $this->view_ats_question($data, $cate, $action, $id);
+            else
+                $data['view'] = 'a_ats_not_found';
+
+            $this->loadView($data);
+
+        } else
+            $this->index();
+
+    }
+
+    public function question($action = '', $id = '') {
+        switch ($action) {
+            case 'delete':
+                $data = array(
+                    'text' => 'Week One',
+                    'explain' => 'Cha biet noi gi',
+                    'time' => time()
+                );
+                $q_id = $this->question_m->add($data);
+                date_default_timezone_set("Australia/Melbourne");
+                if ($this->question_m->delete($q_id) == 'okkkk')
+                    echo 'okkkk::[' . date('G:i d/m/y') . '] Question ID [' . $q_id . '] has been deleted by '
+                        . $this->user_m->getName($this->auth->userid());
+                else
+                    echo 'notok::Errors occured!';
+                break;
+        }
+    }
+
     public function content($top = 'hierarchy') {
         if (isAdmin()) {
-            $data = $this->getDefaultData();
+            $data = $this->getDefaultData('content', $top);
 
             $data['view'] = 'a_content_' . $top;
             $data['topbar_selected'] = $top;
             $data['topbar'] = 'a_topbar_content';
-            $data['sidebar'] = 'a_sidebar';
             $data['sidebar_selected'] = 'content';
 
             if ($top == 'question')
@@ -49,30 +149,6 @@ class Admin extends CI_Controller {
     private function view_content_question($data) {
         $data['page_title'] = 'ITS Admin CP - ATS Manager - Question';
         return $data;
-    }
-
-    public function ats($top = 'question', $cate = 1, $action = '', $id = 1) {
-        if (isAdmin()) {
-
-            $data = $this->getDefaultData();
-            $data['topbar_selected'] = $top;
-            $data['view'] = 'a_ats_' . $top;
-            $data['sidebar_selected'] = 'ats';
-
-            if ($top == 'survey')
-                $data = $this->view_ats_survey($data, $cate, $action, $id);
-            else if ($top == 'result')
-                $data = $this->view_ats_result($data, $cate, $action, $id);
-            else if ($top == 'question')
-                $data = $this->view_ats_question($data, $cate, $action, $id);
-            else
-                $data['view'] = 'a_ats_not_found';
-
-            $this->loadView($data);
-
-        } else
-            $this->index();
-
     }
 
     private function view_ats_survey($data, $cate, $action, $id) {
@@ -105,25 +181,6 @@ class Admin extends CI_Controller {
 
     }
 
-    public function question($action = '', $id = '') {
-        switch ($action) {
-            case 'delete':
-                $data = array(
-                    'text' => 'Week One',
-                    'explain' => 'Cha biet noi gi',
-                    'time' => time()
-                );
-                $q_id = $this->question_m->add($data);
-                date_default_timezone_set("Australia/Melbourne");
-                if ($this->question_m->delete($q_id) == 'okkkk')
-                    echo 'okkkk::[' . date('G:i d/m/y') . '] Question ID [' . $q_id . '] has been deleted by '
-                        . $this->user_m->getName($this->auth->userid());
-                else
-                    echo 'notok::Errors occured!';
-                break;
-        }
-    }
-
     private function view_login($data) {
 
         $data['view'] = 'a_login';
@@ -136,7 +193,7 @@ class Admin extends CI_Controller {
 
     public function index() {
 
-        $data = $this->getDefaultData();
+        $data = $this->getDefaultData('ats','question');
 
         if (!isAdmin())
             $data = $this->view_login($data);
@@ -186,17 +243,16 @@ class Admin extends CI_Controller {
         $this->index();
     }
 
-    private function getDefaultData() {
+    private function getDefaultData($side, $top) {
+
         return array(
             'uid' => $this->auth->userid(),
             'uname' => $this->user_m->getName($this->auth->userid()),
-
             'sidebar' => 'a_sidebar',
-            'view' => 'a_ats_question',
-            'topbar' => 'a_topbar_ats',
-            'sidebar_selected' => '',
-            'topbar_selected' => '',
-
+            'view' => 'a_'.$side.'_' . $top,
+            'topbar' => 'a_topbar_'.$side,
+            'sidebar_selected' => $side,
+            'topbar_selected' => $top,
             'page_title' => 'ITS - Admin Login'
         );
     }

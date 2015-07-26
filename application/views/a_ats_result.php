@@ -14,7 +14,6 @@
                 <div class="panel panel-add">
                     <div class="panel-body text-center">
                         <h1><span class="glyphicon glyphicon-plus"></span></h1>
-                        <h5>New Result</h5>
                     </div>
                 </div>
             </div>

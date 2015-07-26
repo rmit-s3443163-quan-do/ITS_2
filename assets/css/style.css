@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,200italic,400italic,700italic);
 
 html {
-    background: url(../img/index_bg1.jpg) no-repeat center center fixed;
+    background: url(../img/bg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -18,8 +18,6 @@ html {
     width: 100%;
     height: 100%; /* For at least Firefox */
     min-height: 100%;
-    -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
 }
 
 .site-wrapper-inner {
@@ -40,6 +38,8 @@ body {
 
 html, body {
     height: 100%;
+    -webkit-box-shadow: inset 0 0 150px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, .3);
 }
 
 .panel-body {
@@ -154,7 +154,7 @@ html, body {
 }
 
 .a-sidebar .glyphicon {
-    color: white;
+    color: lightgrey;
     display: block;
     clear: both;
     padding: 14px;
@@ -204,7 +204,7 @@ html, body {
 
 .a-sub-sidebar {
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.46);
+    background-color: rgba(67, 99, 146, 0.67);
     color: white;
     margin-top: -40px;
     margin-right: -15px;
@@ -323,7 +323,7 @@ html, body {
 
 .logout {
     /* background-color: gray; */
-    color: rgb(238, 141, 141)!important;
+    color: rgb(211, 211, 211)!important;
 }
 
 .sub-menu a {
@@ -480,4 +480,83 @@ footer {
 
 .space {
     margin-top: 100px;
+}
+
+.a-sub-sidebar .selected .glyphicon, .a-sidebar .selected {
+    color: white;
+}
+
+.a-sidebar a {
+    text-decoration: none;
+}
+
+.home {
+    /*background-color: white;*/
+}
+
+.home-nav {
+    /*padding: 10px;*/
+    padding-top: 10px;
+    background-color: rgba(54, 83, 117, 0.44);
+}
+
+.home-wrapper {
+    min-height: 300px;
+    background-color: white;
+}
+
+.home-nav .step, .home-nav .seperate {
+    float: left;
+}
+
+.home-nav a {
+    color: #C0C0C0;
+}
+
+.home-nav .nav li span.fa {
+    font-size: 30px;
+    display: block;
+    clear: right;
+}
+
+.home-nav .nav>li {
+    border-left: 1px solid rgb(101, 113, 122);
+}
+
+.home-nav .nav>li:first-child {
+    border-left: none;
+}
+
+.home-nav .nav>li>a:focus, .nav>li>a:hover {
+    transition: color 0s ease 0s;
+    color: white;
+    background-color: rgba(1, 140, 255, 0);
+}
+
+.h-sidebar {
+    margin-top: 90px;
+    margin-right: -15px;
+}
+
+.site-title {
+    /* padding: 8px; */
+    color: #FFD0A3;
+    text-align: center;
+    /* width: 100%; */
+    padding: 15px;
+    border-bottom: 1px solid rgba(19, 93, 138, 0.78);
+}
+
+.tooltip-inner {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.wrap-title .tooltip-inner {
+    min-width: 150px;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.home-nav .selected a{
+    color: white;
+    background-color: rgba(19, 25, 35, 0.49);
 }

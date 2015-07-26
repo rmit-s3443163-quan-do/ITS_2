@@ -7,52 +7,48 @@
  */
 ?>
 
+
 <div class="admin-main">
     <div class="row">
         <div class="col-xs-10">
             <div class="form-group">
                 <label for="text">QUESTION TEXT</label>
+
+                <input class="hidden-sm" type="hidden" value="text"/>
                 <input type="text" class="sm form-control" id="text" placeholder="text">
+
             </div>
         </div>
         <div class="col-xs-2">
             <div class="form-group">
                 <label for="text">MARK</label>
-                <input type="number" class="form-control" value="1" placeholder="mark"/>
+                <input type="number" class="form-control"
+                       value="1" placeholder="mark"/>
             </div>
         </div>
-        <div class="col-xs-3">
-            <div class="form-group">
-                <label for="text">CATEGORY</label>
-                <select class="form-control" id="cate-select">
-                    <option value="1">PreTest</option>
-                    <option value="2">PostTest</option>
-                    <option value="3">Software Engineer</option>
-                    <option value="4">Web Programming</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-xs-3">
+        <div class="col-xs-4">
             <div class="form-group">
                 <label for="text">QUESTION TYPE</label>
                 <select class="form-control" id="type-select">
                     <option value="1">Only one correct</option>
                     <option value="2">Multi correct</option>
-                    <option value="3">Find correct order</option>
-                    <option value="4">Input correct answer</option>
+                    <option value="3">Input correct answer</option>
+                    <!--                    <option value="4">Find correct order</option>-->
                 </select>
             </div>
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-4">
             <div class="form-group">
                 <label for="text">NO OF OPTIONS</label>
-                <input type="number" class="form-control" value="4" placeholder="1" min="1"/>
+                <input type="number" class="form-control"
+                       value="4" placeholder="1" min="1"/>
             </div>
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-4">
             <div class="form-group">
                 <label for="text">DIFFICULTY</label>
-                <input type="number" class="form-control" value="1" placeholder="1" min="1" max="5"/>
+                <input type="number" class="form-control" value="1" placeholder="1" min="1"
+                       max="5"/>
             </div>
         </div>
         <div class="type12">
@@ -146,9 +142,10 @@
 
 <script>
 
-    $('#cate-select').val(<?= $cate ?>);
+    var ts = $("#type-select");
 
-    $('#type-select').change(function () {
+
+    ts.change(function () {
         var val = $(this).val();
 
         if (val == 1) {
@@ -169,7 +166,7 @@
             q.removeClass('radio').addClass('checkbox');
             var qc = q.find('input');
             qc.prop('type', 'checkbox');
-            qc.prop('checked',false);
+            qc.prop('checked', false);
 
         } else if (val == 3) {
             $('.type3').removeClass('hidden');
@@ -189,6 +186,6 @@
             e.preventDefault();
             document.execCommand('insertText', false, bufferText);
         }
-
     });
+
 </script>

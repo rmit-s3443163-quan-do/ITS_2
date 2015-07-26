@@ -417,12 +417,12 @@
             $.notify('Errors occurred!!!!', 'error');
         },
         success: function (data, text, xhr) {
+        },
+        done: function (data) {
             if (/okkkk/.test(data))
                 $.notify(data.split('::')[1], 'success');
             else
                 $.notify(data.split('::')[1], 'warn');
-        },
-        done: function (data) {
         }
     });
 

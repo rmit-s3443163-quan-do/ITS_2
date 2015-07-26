@@ -12,12 +12,6 @@
     <div class="a-sub-sidebar">
         <div class="admin-title">
             Admin CP - Secure Check
-            <div class="sub-inline">
-                <div class="sub-panel pull-right">
-                    <span class="glyphicon glyphicon-home"></span>
-                    <a style="color: white" href="<?= base_url() . 'home/' ?>">Homepage</a>
-                </div>
-            </div>
 
         </div>
     </div>

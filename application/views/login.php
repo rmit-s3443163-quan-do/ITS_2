@@ -48,7 +48,6 @@
                                     <strong>Warning!</strong>
                                     <ul>
                                         <li>Username is required.</li>
-<!--                                                <li>Password is required.</li>-->
                                     </ul>
                                 </div>
                                 <?php endif; ?>

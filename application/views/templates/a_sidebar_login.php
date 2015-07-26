@@ -14,6 +14,13 @@
     </div>
     <div class="row">
         <div class="a-sidebar col-xs-3 col-sm-1">
+
+
+            <a href="<?= base_url('home'); ?>">
+                <span class="glyphicon glyphicon-home" data-toggle="tooltip" data-placement="right"
+                      title="Homepage"></span>
+            </a>
+
             <a href="<?= base_url(); ?>home/logout">
                 <span class="glyphicon glyphicon-off logout" data-toggle="tooltip" data-placement="right"
                       title="Logout"></span>
