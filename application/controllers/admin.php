@@ -161,19 +161,20 @@ class Admin extends CI_Controller {
         return $data;
     }
 
-    private function view_ats_question($data, $cate = '', $action = '', $id = '') {
+    private function view_ats_question($data, $action = '', $id = '') {
         $data['page_title'] = 'ITS Admin CP - ATS Manager - Survey';
 
-        if ($action == 'add')
+        if ($action == 'add') {
             $data['view'] .= '_' . $action;
+            $data['category'] = $id;
+
+        }
 
         if ($action == 'edit') {
             $data['view'] .= '_' . $action;
 
             if ($question = $this->question_m->get($id))
                 $data['question'] = $question;
-            else
-                $data['view'] = 'a_ats_not_found';
         }
 
         return $data;
@@ -193,7 +194,7 @@ class Admin extends CI_Controller {
 
     public function index() {
 
-        $data = $this->getDefaultData('ats','question');
+        $data = $this->getDefaultData('ats', 'question');
 
         if (!isAdmin())
             $data = $this->view_login($data);
@@ -249,8 +250,8 @@ class Admin extends CI_Controller {
             'uid' => $this->auth->userid(),
             'uname' => $this->user_m->getName($this->auth->userid()),
             'sidebar' => 'a_sidebar',
-            'view' => 'a_'.$side.'_' . $top,
-            'topbar' => 'a_topbar_'.$side,
+            'view' => 'a_' . $side . '_' . $top,
+            'topbar' => 'a_topbar_' . $side,
             'sidebar_selected' => $side,
             'topbar_selected' => $top,
             'page_title' => 'ITS - Admin Login'

@@ -28,7 +28,6 @@ switch ($topbar_selected) {
 
 ?>
 
-<div class="col-sm-11 home">
     <div class="home-nav text-center">
 
         <ul class="nav nav-justified">

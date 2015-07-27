@@ -7,6 +7,8 @@
  */
 
 ?>
+
+</div>
 <footer class="footer text-center">
     <div class="container">
         <p style="color:white;"> <span style="color: rgba(58, 81, 104, 0.71);

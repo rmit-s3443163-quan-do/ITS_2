@@ -10,7 +10,7 @@
 <div class="home-wrapper">
     <div class="row">
         <div class="col-xs-12">
-            under construction - home main
+            under construction - ats main
         </div>
 
     </div>

@@ -12,7 +12,7 @@
         <div class="question col-xs-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    [<a href="<?= base_url() ?>admin/ats/question/1/add">
+                    [<a href="<?= base_url() ?>admin/ats/question/add/1">
                         <span class="glyphicon glyphicon-plus"
                               data-toggle="tooltip" data-placement="top"
                               title="Add Question"></span></a>] &nbsp;
@@ -50,7 +50,7 @@
                                           title="Detail"></span>
                                 </a>
                                 &nbsp; &nbsp;
-                                <a href="<?= base_url() ?>admin/question/delete/2" class="question-delete">
+                                <a href="<?= base_url() ?>admin/question/delete/2" class="question-delete-1">
                                 <span style="color: darkred" class="glyphicon glyphicon-remove"
                                       data-toggle="tooltip" data-placement="top"
                                       title="Delete"></span>
@@ -141,7 +141,7 @@
         <div class="question col-xs-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    [<a href="<?= base_url() ?>admin/ats/question/2/add">
+                    [<a href="<?= base_url() ?>admin/ats/question/add/2">
                         <span class="glyphicon glyphicon-plus"
                               data-toggle="tooltip" data-placement="top"
                               title="Add Question"></span></a>] &nbsp;
@@ -412,13 +412,18 @@
         $('#modal').modal('show');
     });
 
-    $('.question-delete').loadingbar({
+    $('.question-delete-1').loadingbar({
         error: function (xhr, text, e) {
             $.notify('Errors occurred!!!!', 'error');
         },
         success: function (data, text, xhr) {
         },
+        async: true,
+        cache: true,
+        global: true,
+        dataType: "html",
         done: function (data) {
+            console.log('a');
             if (/okkkk/.test(data))
                 $.notify(data.split('::')[1], 'success');
             else

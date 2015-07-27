@@ -74,14 +74,16 @@ class home extends CI_Controller {
 
     }
 
+    public function ats($top='main') {
+
+        $data = $this->getDefaultData('ats', $top);
+
+        $this->loadView($data);
+    }
+
     public function index() {
 
         $data = $this->getDefaultData('home', 'main');
-
-        if (!$this->auth->loggedin()) {
-            $data['view'] = 'login';
-            $data['errors'] = '';
-        }
 
         $this->loadView($data);
 
@@ -89,19 +91,30 @@ class home extends CI_Controller {
 
     private function getDefaultData($side, $top) {
 
-        return array(
+        $data = array(
             'uid' => $this->auth->userid(),
             'uname' => $this->user_m->getName($this->auth->userid()),
             'sidebar' => 'sidebar',
+            'side' => $side,
+            'top' => $top,
             'view' => $side . '_' . $top,
-            'topbar' => 'topbar_home',
+            'topbar' => 'topbar_'.$side,
             'sidebar_selected' => $side,
             'topbar_selected' => $side,
             'page_title' => 'ITS - Homepage'
         );
+
+        if (!$this->auth->loggedin()) {
+            $data['view'] = 'login';
+            $data['errors'] = '';
+        }
+
+        return $data;
+
     }
 
     private function loadView($data) {
+
 
         $this->load->view('templates/header', $data);
 
@@ -114,7 +127,6 @@ class home extends CI_Controller {
 
         $this->load->view($data['view'], $data);
         $this->load->view('templates/footer');
-
 
     }
 

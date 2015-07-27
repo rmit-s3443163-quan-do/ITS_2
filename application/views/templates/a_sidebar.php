@@ -39,33 +39,33 @@ switch ($sidebar_selected) {
 
 
             <a href="<?= base_url('admin/dashboard') ?>">
-            <span class="<?= $dashboard ?> glyphicon glyphicon-dashboard" data-toggle="tooltip" data-placement="right"
+            <span class="<?= $dashboard ?> grow glyphicon glyphicon-dashboard" data-toggle="tooltip" data-placement="right"
                   title="Dashboard"></span>
             </a>
 
             <a href="<?= base_url('admin/content') ?>">
-            <span class="<?= $content ?> glyphicon  glyphicon-list-alt" data-toggle="tooltip" data-placement="right"
+            <span class="<?= $content ?> grow glyphicon  glyphicon-list-alt" data-toggle="tooltip" data-placement="right"
                   title="Content Manager"></span>
             </a>
 
             <a href="<?= base_url('admin/user') ?>">
-            <span class="<?= $user ?> glyphicon glyphicon-user" data-toggle="tooltip" data-placement="right"
+            <span class="<?= $user ?> grow glyphicon glyphicon-user" data-toggle="tooltip" data-placement="right"
                   title="User Manager"></span>
             </a>
 
             <a href="<?= base_url('admin/ats') ?>">
-            <span class="<?= $ats ?> glyphicon fa fa-sitemap seperate" data-toggle="tooltip"
+            <span class="<?= $ats ?> grow glyphicon fa fa-sitemap seperate" data-toggle="tooltip"
                   data-placement="right"
                   title="ATS Manager"></span>
             </a>
 
             <a href="<?= base_url('admin/config') ?>">
-            <span class="<?= $config ?> glyphicon seperate glyphicon-cog" data-toggle="tooltip" data-placement="right"
+            <span class="<?= $config ?> grow glyphicon seperate glyphicon-cog" data-toggle="tooltip" data-placement="right"
                   title="System Config"></span>
             </a>
 
             <a href="<?= base_url(); ?>admin/doLogout">
-                <span class="glyphicon glyphicon-off logout" data-toggle="tooltip" data-placement="right"
+                <span class="glyphicon grow glyphicon-off logout" data-toggle="tooltip" data-placement="right"
                       title="Logout AdminCP"></span>
             </a>
         </div>
