@@ -52,7 +52,7 @@ class course extends CI_Controller {
 
     public function add() {
 
-        $this->form_validation->set_rules('text', 'Course Name', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('text', 'Course Naw', 'trim|required|xss_clean');
 
         if ($this->form_validation->run()) {
             $data = array(

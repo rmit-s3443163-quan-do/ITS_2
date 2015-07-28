@@ -6,12 +6,12 @@
  * Date: 24/07/15
  * Time: 9:43 AM
  */
-class option_m extends CI_Model {
+class quetag_m extends CI_Model {
 
     public function getAll() {
 
         $this->db->select('*');
-        $this->db->from('option');
+        $this->db->from('quetag');
 
         $query = $this->db->get();
 
@@ -22,38 +22,37 @@ class option_m extends CI_Model {
     public function get($data) {
 
         $this->db->select('*');
-        $this->db->from('option');
+        $this->db->from('quetag');
         $this->db->where($data);
-//        $this->db->limit(1);
 
         $query = $this->db->get();
 
         return ($query->num_rows() > 0) ? $query->result() : false;
-        
+
     }
 
     public function add($data) {
 
         $this->db->set($data);
-        $this->db->insert('option');
-        return ($this->db->affected_rows() > 0)?$this->db->insert_id():false;
-        
+        $this->db->insert('quetag');
+        return ($this->db->affected_rows() > 0) ? $this->db->insert_id() : false;
+
     }
 
     public function update($id, $data) {
 
         $this->db->where('id', $id);
-        $this->db->update('option', $data);
-        return ($this->db->affected_rows() > 0)?true:false;
+        $this->db->update('quetag', $data);
+        return ($this->db->affected_rows() > 0) ? true : false;
 
     }
 
     public function delete($data) {
 
         $this->db->where($data);
-        $this->db->delete('option');
+        $this->db->delete('quetag');
 
-        return ($this->db->affected_rows() > 0)?$this->db->affected_rows():false;
+        return ($this->db->affected_rows() > 0) ? $this->db->affected_rows() : false;
 
     }
 }

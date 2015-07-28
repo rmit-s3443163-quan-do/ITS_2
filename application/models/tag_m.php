@@ -19,35 +19,41 @@ class tag_m extends CI_Model {
 
     }
 
-    public function get($id) {
+    public function has($data) {
 
         $this->db->select('*');
         $this->db->from('tag');
-        $this->db->where('id', $id);
+        $this->db->where($data);
         $this->db->limit(1);
 
         $query = $this->db->get();
 
-        return ($query->num_rows() == 1) ? $query->result() : false;
+        return ($query->num_rows() == 1) ? $query->result()[0]->id : false;
+
+    }
+
+    public function get($data) {
+
+        $this->db->select('*');
+        $this->db->from('tag');
+        $this->db->where($data);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        return ($query->num_rows() == 1) ? $query->result()[0] : false;
         
     }
 
-    public function add($text) {
+    public function add($data) {
 
-        $data = array(
-            'text' => $text
-        );
-
-        $this->db->insert('tag', $data);
+        $this->db->set($data);
+        $this->db->insert('tag');
         return ($this->db->affected_rows() > 0)?$this->db->insert_id():false;
         
     }
 
-    public function update($id, $text) {
-
-        $data = array(
-            'text' => $text
-        );
+    public function update($id, $data) {
 
         $this->db->where('id', $id);
         $this->db->update('tag', $data);

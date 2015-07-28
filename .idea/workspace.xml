@@ -22,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="a_ats_question.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="a_ats_question.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/a_ats_question.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="124.833336">
-              <caret line="151" column="31" selection-start-line="151" selection-start-column="31" selection-end-line="151" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.37346438">
+              <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -35,30 +35,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="568" column="30" selection-start-line="568" selection-start-column="30" selection-end-line="568" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="a_ats_question_add.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/a_ats_question_add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33169532">
-              <caret line="103" column="7" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="7" />
-              <folding>
-                <marker date="1437977671000" expanded="true" signature="1516:1565" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utility_helper.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/helpers/utility_helper.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5">
-              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="18" selection-end-column="117" />
+            <state vertical-scroll-proportion="-8.925926">
+              <caret line="562" column="17" selection-start-line="562" selection-start-column="17" selection-end-line="562" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -67,17 +45,43 @@
       <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.25">
-              <caret line="168" column="30" selection-start-line="168" selection-start-column="30" selection-end-line="168" selection-end-column="30" />
+            <state vertical-scroll-proportion="7.5">
+              <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
               <folding>
                 <element signature="n#dashboard#0;n#Admin#0;n#!!top" expanded="false" />
                 <element signature="n#config#0;n#Admin#0;n#!!top" expanded="false" />
                 <element signature="n#user#0;n#Admin#0;n#!!top" expanded="false" />
-                <element signature="n#ats#0;n#Admin#0;n#!!top" expanded="false" />
-                <element signature="n#question#0;n#Admin#0;n#!!top" expanded="false" />
-                <element signature="n#view_content_question#0;n#Admin#0;n#!!top" expanded="false" />
-                <element signature="n#view_ats_survey#0;n#Admin#0;n#!!top" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="course_m.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/course_m.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.75">
+              <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tag_m.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/tag_m.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.5">
+              <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="a_ats_question_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/a_ats_question_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.0">
+              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,19 +98,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/a_ats_not_found_v.php" />
-        <option value="$PROJECT_DIR$/application/models/quecou_m.php" />
-        <option value="$PROJECT_DIR$/application/views/a_ats_question_add_v.php" />
-        <option value="$PROJECT_DIR$/application/views/a_ats_result_v.php" />
-        <option value="$PROJECT_DIR$/application/views/sketch/a_question.php" />
-        <option value="$PROJECT_DIR$/application/models/survey_m.php" />
-        <option value="$PROJECT_DIR$/application/views/a_ats_survey_v.php" />
-        <option value="$PROJECT_DIR$/application/views/a_ats_question_v.php" />
-        <option value="$PROJECT_DIR$/application/views/a_ats.php" />
-        <option value="$PROJECT_DIR$/application/views/a_login.php" />
-        <option value="$PROJECT_DIR$/application/views/a_content_course.php" />
         <option value="$PROJECT_DIR$/application/views/a_content_question.php" />
-        <option value="$PROJECT_DIR$/application/views/templates/a_topbar_ats.php" />
         <option value="$PROJECT_DIR$/application/views/templates/a_topbar_content.php" />
         <option value="$PROJECT_DIR$/application/views/a_user_contribute.php" />
         <option value="$PROJECT_DIR$/application/views/a_user_queries.php" />
@@ -140,11 +132,23 @@
         <option value="$PROJECT_DIR$/application/views/templates/sidebar.php" />
         <option value="$PROJECT_DIR$/application/views/templates/a_sidebar.php" />
         <option value="$PROJECT_DIR$/application/views/a_ats_question_add_old.php" />
-        <option value="$PROJECT_DIR$/application/views/a_ats_question.php" />
-        <option value="$PROJECT_DIR$/application/controllers/admin.php" />
         <option value="$PROJECT_DIR$/application/helpers/utility_helper.php" />
-        <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/application/views/templates/a_topbar_ats.php" />
+        <option value="$PROJECT_DIR$/application/config/autoload.php" />
+        <option value="$PROJECT_DIR$/application/models/option_m.php" />
+        <option value="$PROJECT_DIR$/application/models/quecou_m.php" />
+        <option value="$PROJECT_DIR$/application/models/quetag_m.php" />
+        <option value="$PROJECT_DIR$/application/models/question_m.php" />
+        <option value="$PROJECT_DIR$/application/models/log_m.php" />
         <option value="$PROJECT_DIR$/application/views/a_ats_question_add.php" />
+        <option value="$PROJECT_DIR$/system/core/Security.php" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/application/controllers/course.php" />
+        <option value="$PROJECT_DIR$/application/models/tag_m.php" />
+        <option value="$PROJECT_DIR$/application/models/course_m.php" />
+        <option value="$PROJECT_DIR$/application/views/a_ats_question_view.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin.php" />
+        <option value="$PROJECT_DIR$/application/views/a_ats_question.php" />
       </list>
     </option>
   </component>
@@ -300,43 +304,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ATSv2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ITSv2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ATSv2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ITSv2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -378,10 +346,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/application/views" />
+      <recent name="$PROJECT_DIR$/system/core" />
+      <recent name="$PROJECT_DIR$/application/models" />
       <recent name="$PROJECT_DIR$/application/views/templates" />
       <recent name="$PROJECT_DIR$/application/controllers" />
-      <recent name="$PROJECT_DIR$/application/models" />
-      <recent name="$PROJECT_DIR$/application/views/sketch" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/application/views" />
@@ -474,19 +442,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/a_ats_question.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/a_ats_survey.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13375796">
@@ -506,20 +466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/course.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33248407">
-          <caret line="31" column="21" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/user_authentication.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24014778">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -551,16 +497,6 @@
         <state vertical-scroll-proportion="0.073891625">
           <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/templates/a_topbar_ats.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4729064">
-          <caret line="32" column="39" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="39" />
-          <folding>
-            <element signature="e#6#87#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -649,7 +585,7 @@
         <state vertical-scroll-proportion="-3.75">
           <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -718,69 +654,207 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/templates/a_topbar_ats.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64987713">
+          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.01842752">
+          <caret line="62" column="67" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/option_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8636364">
+          <caret line="55" column="74" selection-start-line="55" selection-start-column="74" selection-end-line="55" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/quecou_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84766585">
+          <caret line="46" column="76" selection-start-line="46" selection-start-column="76" selection-end-line="46" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.055282556">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2997543">
-          <caret line="98" column="26" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.11056511">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="7" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/a_ats_question_add_old.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.96314496">
-          <caret line="132" column="60" selection-start-line="132" selection-start-column="48" selection-end-line="132" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.25">
-          <caret line="168" column="30" selection-start-line="168" selection-start-column="30" selection-end-line="168" selection-end-column="30" />
-          <folding>
-            <element signature="n#dashboard#0;n#Admin#0;n#!!top" expanded="false" />
-            <element signature="n#config#0;n#Admin#0;n#!!top" expanded="false" />
-            <element signature="n#user#0;n#Admin#0;n#!!top" expanded="false" />
-            <element signature="n#ats#0;n#Admin#0;n#!!top" expanded="false" />
-            <element signature="n#question#0;n#Admin#0;n#!!top" expanded="false" />
-            <element signature="n#view_content_question#0;n#Admin#0;n#!!top" expanded="false" />
-            <element signature="n#view_ats_survey#0;n#Admin#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/helpers/utility_helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5">
+        <state vertical-scroll-proportion="0.22113022">
           <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="18" selection-end-column="117" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+    <entry file="file://$PROJECT_DIR$/application/controllers/user_authentication.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="568" column="30" selection-start-line="568" selection-start-column="30" selection-end-line="568" selection-end-column="30" />
+        <state vertical-scroll-proportion="-0.57125306">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/a_ats_question.php">
+    <entry file="file://$PROJECT_DIR$/application/models/question_m.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="124.833336">
-          <caret line="151" column="31" selection-start-line="151" selection-start-column="31" selection-end-line="151" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.8636364">
+          <caret line="55" column="81" selection-start-line="55" selection-start-column="81" selection-end-line="55" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/topic_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/log_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7972973">
+          <caret line="53" column="30" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/core/CodeIgniter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3329098">
+          <caret line="335" column="18" selection-start-line="335" selection-start-column="13" selection-end-line="335" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/core/Security_removed_img.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/core/Security.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.019059721">
+          <caret line="437" column="38" selection-start-line="437" selection-start-column="29" selection-end-line="437" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/course.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6056511">
+          <caret line="54" column="61" selection-start-line="54" selection-start-column="61" selection-end-line="54" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/helpers/form_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3329098">
+          <caret line="764" column="43" selection-start-line="764" selection-start-column="31" selection-end-line="764" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/core/Input.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35503685">
+          <caret line="812" column="29" selection-start-line="812" selection-start-column="21" selection-end-line="812" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/a_ats_question_add.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33169532">
-          <caret line="103" column="7" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.85257983">
+          <caret line="228" column="5" selection-start-line="228" selection-start-column="5" selection-end-line="228" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.925926">
+          <caret line="562" column="17" selection-start-line="562" selection-start-column="17" selection-end-line="562" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/course_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.75">
+          <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/tag_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.5">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/quetag_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.93488944">
+          <caret line="54" column="84" selection-start-line="54" selection-start-column="84" selection-end-line="54" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/a_ats_question_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.0">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="7.5">
+          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding>
-            <marker date="1437977671000" expanded="true" signature="1516:1565" placeholder="..." />
+            <element signature="n#dashboard#0;n#Admin#0;n#!!top" expanded="false" />
+            <element signature="n#config#0;n#Admin#0;n#!!top" expanded="false" />
+            <element signature="n#user#0;n#Admin#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/a_ats_question.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37346438">
+          <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

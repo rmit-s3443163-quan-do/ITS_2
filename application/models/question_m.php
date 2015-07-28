@@ -19,11 +19,11 @@ class question_m extends CI_Model {
 
     }
 
-    public function get($id) {
+    public function get($data) {
 
         $this->db->select('*');
         $this->db->from('question');
-        $this->db->where('id', $id);
+        $this->db->where($data);
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -53,7 +53,7 @@ class question_m extends CI_Model {
         $this->db->where('id', $id);
         $this->db->delete('question');
 
-        return ($this->db->affected_rows() > 0)?'okkkk':'Errors occurred!';
+        return ($this->db->affected_rows() > 0)?$this->db->affected_rows():false;
 
     }
 }

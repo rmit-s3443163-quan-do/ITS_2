@@ -19,16 +19,16 @@ class course_m extends CI_Model {
 
     }
 
-    public function get($id) {
+    public function get($data) {
 
         $this->db->select('*');
         $this->db->from('course');
-        $this->db->where('id', $id);
+        $this->db->where($data);
         $this->db->limit(1);
 
         $query = $this->db->get();
 
-        return ($query->num_rows() == 1) ? $query->result() : false;
+        return ($query->num_rows() == 1) ? $query->result()[0] : false;
 
     }
 
