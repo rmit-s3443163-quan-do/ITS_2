@@ -22,7 +22,6 @@ switch ($topbar_selected) {
         $result = 'selected';
         break;
 }
-
 ?>
 
 <div class="col-xs-9 col-sm-11 a-content">
@@ -43,8 +42,8 @@ switch ($topbar_selected) {
                     <a href="<?= base_url('admin/ats/survey') ?>">Survey</a>
                 </div>
                 <div class="sub-panel pull-right">
-                    <span class="glyphicon glyphicon-home"></span>
-                    <a style="color: white" href="<?= base_url('home/') ?>">Homepage</a>
+                    <span class="<?= $custom['glyph'] ?>"></span>
+                    <a style="color: white" href="<?= $custom['link'] ?>"><?= $custom['text'] ?></a>
                 </div>
             </div>
 
@@ -52,10 +51,15 @@ switch ($topbar_selected) {
     </div>
     <div class="bc">
         <ol class="breadcrumb">
-            <li><a href="#">AdminCP</a></li>
-            <li><a href="#">ATS Manager</a></li>
-            <li><a href="#">Questions</a></li>
-            <li><a href="#">Pre-Test</a></li>
-            <li class="active">Add Question</li>
+            <? foreach ($breadcrumb as $index => $bc): ?>
+                <? if ($index < count($breadcrumb)-1): ?>
+                    <li><a href="<?= $bc['link'] ?>">
+                            <?= $bc['text'] ?>
+                        </a>
+                    </li>
+                <? else: ?>
+                    <li class="active"><?= $bc['text'] ?></li>
+                <? endif ?>
+            <? endforeach; ?>
         </ol>
     </div>

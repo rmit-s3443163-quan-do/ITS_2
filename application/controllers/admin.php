@@ -23,6 +23,7 @@ class Admin extends CI_Controller {
         $this->load->model('option_m');
         $this->load->model('tag_m');
         $this->load->model('log_m');
+        $this->load->model('survey_m');
 
     }
 
@@ -91,9 +92,13 @@ class Admin extends CI_Controller {
         if (isAdmin()) {
 
             $data = $this->getDefaultData('ats', $top);
+            $data['breadcrumb'][] = array(
+                'text' => 'ATS Manager',
+                'link' => base_url('admin/ats')
+            );
 
             if ($top == 'survey')
-                $data = $this->view_ats_survey($data, $cate, $action, $id);
+                $data = $this->view_ats_survey($data, $action, $id);
             else if ($top == 'result')
                 $data = $this->view_ats_result($data, $cate, $action, $id);
             else if ($top == 'question')
@@ -108,7 +113,7 @@ class Admin extends CI_Controller {
 
     }
 
-    public function question($action = '', $id = '') {
+    public function question($action = '', $id = 1) {
         switch ($action) {
             case 'view':
                 if ($question = $this->question_m->get(array('id' => $id))) {
@@ -130,40 +135,11 @@ class Admin extends CI_Controller {
                         'question' => $question,
                         'options' => $options,
                         'tags' => $tags,
-                        'courses' => $courses
+                        'courses' => $courses,
+                        'url' => base_url('admin/question/update')
                     );
                     $this->load->view('a_ats_question_view', $data);
 
-//                    echo 'id: ' . $question->id . ' - Text: ' . htmlspecialchars_decode($question->text) . '- type: ' . $question->type . '<br/>';
-//
-//                    if ($options = $this->option_m->get(array('question_id' => $question->id))) {
-//
-//                        foreach ($options as $option) {
-//                            echo 'id: ' . $option->id . ' - text: ' . htmlspecialchars_decode($option->text) .
-//                                ' - explain: ' . htmlspecialchars_decode($option->explain) . ' - correct: ' . $option->correct . '<br/>';
-//                        }
-//
-//                    }
-//
-//                    if ($tags = $this->quetag_m->get(array('question_id' => $question->id))) {
-//
-//                        foreach ($tags as $tag) {
-//                            echo 'tag: ' . $tag->tag_id . '<br/>';
-//
-//                        }
-//
-//                    }
-//
-//                    if ($courses = $this->quecou_m->get(array('question_id' => $question->id))) {
-//
-//                        foreach ($courses as $course) {
-//                            echo 'course: ' . $course->course_id . '<br/>';
-//                        }
-//
-//                    }
-//
-//
-//                    echo '<a href="' . base_url('admin/ats/question/add/13') . '">Add another question</a>';
                 } else
                     echo 'notok::404 Question not found!';
 
@@ -187,6 +163,18 @@ class Admin extends CI_Controller {
                 } else
                     echo 'notok::404 Question not found!';
                 break;
+            case 'update':
+                if ($this->input->post('text')) {
+                    $data = [
+                        'id' => $this->input->post('id'),
+                        'text' => htmlspecialchars($this->input->post('text'))
+                    ];
+
+                    $this->question_m->update($data);
+
+                    $this->index();
+                }
+                break;
 
             case 'add':
                 $msg = '';
@@ -197,8 +185,8 @@ class Admin extends CI_Controller {
                         if (strstr($index, $tmp))
                             $required = '';
                     }
-                    echo $index . '-' . $post . '-' . $required . '<br/>';
-                    $this->form_validation->set_rules($index, '"' . $index . '"', 'trim' . $required);
+//                    echo $index . '-' . $post . '-' . $required . '<br/>';
+                    $this->form_validation->set_rules($index, '"' . $index . '"', 'trim|xss_clean' . $required);
                 }
 
                 if ($this->form_validation->run()) {
@@ -298,6 +286,23 @@ class Admin extends CI_Controller {
         }
     }
 
+    public function survey($action, $id) {
+        if ($action == 'update') {
+            foreach ($this->input->post() as $index => $value) {
+                echo $index . ' - ' . $value . '<br/>';
+            }
+
+            if ($this->input->post('text')) {
+                $data = [
+                    'id' => $this->input->post('id'),
+                    'text' => htmlspecialchars($this->input->post('text'))
+                ];
+
+                $this->survey_m->update($data);
+            }
+        }
+    }
+
     public function content($top = 'hierarchy') {
         if (isAdmin()) {
             $data = $this->getDefaultData('content', $top);
@@ -327,18 +332,39 @@ class Admin extends CI_Controller {
         return $data;
     }
 
-    private function view_ats_survey($data, $cate, $action, $id) {
+    private function view_ats_survey($data, $action = 'index', $id = 0) {
+        $data['breadcrumb'][] = array(
+            'text' => 'Survey',
+            'link' => base_url('admin/ats/survey')
+        );
+
         $data['page_title'] = 'ITS Admin CP - ATS Manager - Survey';
+        $data['surveys'] = array();
+        $data['surveys'] = $this->survey_m->getAll();
+        $data['custom'] = array(
+            'text' => 'Add Survey',
+            'link' => base_url('admin/ats/survey/add'),
+            'glyph' => 'glyphicon glyphicon-plus'
+        );
+
         return $data;
     }
 
     private function view_ats_result($data, $cate = '', $action = '', $id = '') {
         $data['page_title'] = 'ITS Admin CP - ATS Manager - Result';
+        $data['breadcrumb'][] = array(
+            'text' => 'Result',
+            'link' => base_url('admin/ats/result')
+        );
         return $data;
     }
 
     private function view_ats_question($data, $action = '', $id = '') {
         $data['page_title'] = 'ITS Admin CP - ATS Manager - Question';
+        $data['breadcrumb'][] = array(
+            'text' => 'Question',
+            'link' => base_url('admin/ats/question')
+        );
 
         // 13 and 14 is course id of pre and post test
         foreach ([13, 14] as $index => $c_id) {
@@ -363,6 +389,10 @@ class Admin extends CI_Controller {
 
 
         if ($action == 'add') {
+            $data['breadcrumb'][] = array(
+                'text' => 'Add',
+                'link' => base_url('admin/ats/question/add')
+            );
             $data['view'] .= '_' . $action;
             $data['course'] = $id;
 
@@ -392,7 +422,7 @@ class Admin extends CI_Controller {
 
     public function index() {
 
-        $data = $this->getDefaultData('ats', 'question');
+        $data = $this->view_ats_question($this->getDefaultData('ats', 'question'));
 
         if (!isAdmin())
             $data = $this->view_login($data);
@@ -452,7 +482,16 @@ class Admin extends CI_Controller {
             'topbar' => 'a_topbar_' . $side,
             'sidebar_selected' => $side,
             'topbar_selected' => $top,
-            'page_title' => 'ITS - Admin Login'
+            'page_title' => 'ITS - Admin Login',
+            'custom' => array(
+                'text' => 'Homepage',
+                'link' => base_url('home'),
+                'glyph' => 'glyphicon glyphicon-home'
+            ),
+            'breadcrumb' => array(array(
+                'text' => 'Admin CP',
+                'link'=>base_url('admin')
+            ))
         );
     }
 
@@ -477,6 +516,36 @@ class Admin extends CI_Controller {
         $this->log_m->add($data);
 
         return $string;
+    }
+
+    public function images($action) {
+
+        if (isAdmin()) {
+
+            if ($_FILES['file']['name']) {
+
+                if (!$_FILES['file']['error']) {
+                    $name = uniqid(rand());
+                    $ext = explode('.', $_FILES['file']['name']);
+                    $type = $ext[count($ext) - 1];
+
+                    if ($type == 'png' || $type == 'jpg' || $type == 'jpeg') {
+
+                        $filename = $name . '.' . $type;
+                        $destination = $_SERVER['DOCUMENT_ROOT'] . '/ITSv2/assets/uploads/' . $filename;
+                        $location = $_FILES["file"]["tmp_name"];
+                        move_uploaded_file($location, $destination);
+                        echo base_url('/assets/uploads/' . $filename);
+                    } else
+                        echo 'File type not allowed!';
+                } else {
+                    echo $message = 'Ooops!  Your upload triggered the following error:  ' . $_FILES['file']['error'];
+                }
+
+            }
+
+        } else
+            $this->index();
     }
 
 }

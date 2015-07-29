@@ -40,9 +40,9 @@ class question_m extends CI_Model {
         
     }
 
-    public function update($id, $data) {
+    public function update($data) {
 
-        $this->db->where('id', $id);
+        $this->db->where('id', $data['id']);
         $this->db->update('question', $data);
         return ($this->db->affected_rows() > 0)?true:false;
 

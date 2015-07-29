@@ -80,7 +80,6 @@
                                         global: true,
                                         dataType: "html",
                                         done: function (data) {
-//                                            console.log('done');
                                             var modal = $('#myModal');
                                             modal.html(data);
                                             modal.modal('show');
@@ -119,24 +118,17 @@
 
     </div>
 </div>
+
+
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    </div>
+
+
 </div>
 </div>
 </div>
 
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">View Question</div>
-            <div class="modal-body">
-                <span class="glyphicon glyphicon-refresh"></span> Loading data..
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 <script>
 
     var entityMap = {
