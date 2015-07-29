@@ -16,7 +16,7 @@ $answer_number = 4;
         <div class="row">
             <div class="col-xs-12">
                 <div class="form-group">
-                    <label for="text">QUESTION TYPE <progress value="0"></progress></label>
+                    <label for="text">QUESTION TYPE</label>
                     <select name="question_type" class="form-control" id="type-select">
                         <option value="0">Only one correct answer</option>
                         <option value="1">None, One or Many correct answer/s</option>
@@ -44,7 +44,7 @@ $answer_number = 4;
                             <div class="answer">
                                 <div class="q-type radio">
                                     <label>
-                                        <input type="radio" name="correct" value="<?= $i ?>">
+                                        <input type="radio" class="input_correct" name="correct" value="<?= $i ?>">
                                         OPTION <?= $i + 1 ?>
                                     </label>
                                 </div>
@@ -202,6 +202,23 @@ $answer_number = 4;
             var qc = q.find('input');
             qc.prop('type', tmp2);
             qc.prop('checked', false);
+
+            if (type==0) {
+                $('input.input_correct[type=radio]').each(function () {
+                    $(this).attr('name','correct');
+                    $(this).attr('value', '0');
+                    count++;
+                });
+            } else {
+                var count = 0;
+                $('input.input_correct[type=checkbox]').each(function () {
+                    $(this).attr('name', 'correct_' + count);
+                    $(this).attr('value', '1');
+                    count++;
+                });
+            }
+
+
 
         }
         function sm() {

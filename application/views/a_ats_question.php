@@ -11,7 +11,7 @@
     <div class="row">
         <?php foreach ($questions as $index => $question): ?>
 
-            <div class="question col-xs-6">
+            <div class="question col-xs-12">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         [<a href="<?= base_url() ?>admin/ats/question/add/<?= $question['course_id'] ?>">
@@ -46,9 +46,7 @@
                                 <tr id="tr_<?= $q->id ?>">
                                     <td><?= $i + 1 ?></td>
                                     <td>
-                                <span data-toggle="tooltip" data-placement="right"
-                                      title="<?= (strlen($q->text) < 100 ? $q->text : substr($q->text, 0, 100) . '..') ?>">
-                                    <?= (strlen($q->text) < 40 ? $q->text : substr($q->text, 0, 40) . '..') ?></span>
+                                        <?= (strlen($q->text) < 40 ? $q->text : substr($q->text, 0, 100) . '..') ?>
                                     </td>
                                     <td>
                                         <a href="<?= base_url() ?>admin/question/view/<?= $q->id ?>"
@@ -70,11 +68,6 @@
                                 </tr>
                                 <script>
                                     $('#modal_activate_<?= $q->id ?>').loadingbar({
-                                        error: function (xhr, text, e) {
-                                            $.notify('Errors occurred!!!!', 'error');
-                                        },
-                                        success: function (data, text, xhr) {
-                                        },
                                         async: true,
                                         cache: true,
                                         global: true,
@@ -86,11 +79,6 @@
                                         }
                                     });
                                     $('#question-delete-<?= $q->id ?>').loadingbar({
-                                        error: function (xhr, text, e) {
-                                            $.notify('Errors occurred!!!!', 'error');
-                                        },
-                                        success: function (data, text, xhr) {
-                                        },
                                         async: true,
                                         cache: true,
                                         global: true,
@@ -120,8 +108,8 @@
 </div>
 
 
-    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-    </div>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+</div>
 
 
 </div>

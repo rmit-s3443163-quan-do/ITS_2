@@ -146,4 +146,5 @@
         $('#add-form').addClass('hidden');
         $('#add-button').removeClass('hidden');
     });
+
 </script>

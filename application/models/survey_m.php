@@ -47,9 +47,9 @@ class survey_m extends CI_Model {
 
     }
 
-    public function delete($id) {
+    public function delete($data) {
 
-        $this->db->where('id', $id);
+        $this->db->where($data);
         $this->db->delete('survey');
 
         return ($this->db->affected_rows() > 0) ? true : false;

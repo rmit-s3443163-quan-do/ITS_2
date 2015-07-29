@@ -88,7 +88,7 @@ class Admin extends CI_Controller {
     }
 
 
-    public function ats($top = 'question', $cate = 1, $action = '', $id = 1) {
+    public function ats($top = 'result', $action = '', $id = 1) {
         if (isAdmin()) {
 
             $data = $this->getDefaultData('ats', $top);
@@ -100,9 +100,9 @@ class Admin extends CI_Controller {
             if ($top == 'survey')
                 $data = $this->view_ats_survey($data, $action, $id);
             else if ($top == 'result')
-                $data = $this->view_ats_result($data, $cate, $action, $id);
+                $data = $this->view_ats_result($data, $action, $id);
             else if ($top == 'question')
-                $data = $this->view_ats_question($data, $cate, $action, $id);
+                $data = $this->view_ats_question($data, $action, $id);
             else
                 $data['view'] = 'a_ats_not_found';
 
@@ -148,13 +148,10 @@ class Admin extends CI_Controller {
             case 'delete':
 
                 if ($n = $this->option_m->delete(['question_id' => $id])) ;
-//                    $this->log($n . ' Option/s have been deleted. Question ID: ' . $id);
 
                 if ($n = $this->quecou_m->delete(['question_id' => $id])) ;
-//                    $this->log($n . ' QueCou/s have been deleted. Question ID: ' . $id);
 
                 if ($n = $this->quetag_m->delete(['question_id' => $id])) ;
-//                    $this->log($n . ' QueTag/s have been deleted. Question ID: ' . $id);
 
                 if ($this->question_m->delete($id)) {
                     $str = 'Question ID [' . $id . '] has been deleted';
@@ -213,11 +210,17 @@ class Admin extends CI_Controller {
                         else if ($this->input->post('explain_' . $i))
                             $explain = htmlspecialchars($this->input->post('explain_' . $i));
 
+                        if ($this->input->post('question_type') == 1)
+                            $correct = $this->input->post('correct_' . $i) ? 1 : 0;
+                        else
+                            $correct = $this->input->post('correct') == $i ? 1 : 0;
+
+                        echo 'correct: ' . $correct . '<br/>';
                         $data = array(
                             'question_id' => $question_id,
                             'text' => htmlspecialchars($this->input->post('option_' . $i)),
                             'explain' => $explain,
-                            'correct' => $this->input->post('correct') == $i ? 1 : 0
+                            'correct' => $correct
                         );
 
                         if ($option_id = $this->option_m->add($data)) {
@@ -276,7 +279,8 @@ class Admin extends CI_Controller {
                     $msg .= '<a href="' . base_url('admin/question/view/' . $question_id) . '">View question</a><br/>';
                     $msg .= '<a href="' . base_url('admin/ats/question/add/13') . '">Add another question</a>';
 
-                    echo 'okkkk::' . $msg;
+//                    echo 'okkkk::' . $msg;
+                    $this->ats('question');
 
                 } else
                     echo 'notok::' . $this->form_validation->error_string();
@@ -286,12 +290,8 @@ class Admin extends CI_Controller {
         }
     }
 
-    public function survey($action, $id) {
+    public function survey($action, $id = 0) {
         if ($action == 'update') {
-            foreach ($this->input->post() as $index => $value) {
-                echo $index . ' - ' . $value . '<br/>';
-            }
-
             if ($this->input->post('text')) {
                 $data = [
                     'id' => $this->input->post('id'),
@@ -299,6 +299,28 @@ class Admin extends CI_Controller {
                 ];
 
                 $this->survey_m->update($data);
+            }
+        } else if ($action == 'add') {
+            if ($this->input->post('text')) {
+                $data = [
+                    'text' => htmlspecialchars($this->input->post('text'))
+                ];
+
+                if ($survey_id = $this->survey_m->add($data))
+                    echo $survey_id;
+            }
+        } else if ($action == 'delete' || $action == 'del') {
+            if ($id) {
+                $data = [
+                    'id' => $id
+                ];
+
+                if ($this->survey_m->delete($data)) {
+                    if ($action == 'delete')
+                        echo 'okkkk::Delete success!';
+                    else
+                        $this->ats('survey');
+                }
             }
         }
     }
@@ -344,13 +366,14 @@ class Admin extends CI_Controller {
         $data['custom'] = array(
             'text' => 'Add Survey',
             'link' => base_url('admin/ats/survey/add'),
-            'glyph' => 'glyphicon glyphicon-plus'
+            'glyph' => 'glyphicon glyphicon-plus',
+            'function' => 'return addSurvey()'
         );
 
         return $data;
     }
 
-    private function view_ats_result($data, $cate = '', $action = '', $id = '') {
+    private function view_ats_result($data, $action = '', $id = '') {
         $data['page_title'] = 'ITS Admin CP - ATS Manager - Result';
         $data['breadcrumb'][] = array(
             'text' => 'Result',
@@ -359,10 +382,10 @@ class Admin extends CI_Controller {
         return $data;
     }
 
-    private function view_ats_question($data, $action = '', $id = '') {
+    private function view_ats_question($data, $action = '', $id = 13) {
         $data['page_title'] = 'ITS Admin CP - ATS Manager - Question';
         $data['breadcrumb'][] = array(
-            'text' => 'Question',
+            'text' => $id == 13 ? 'Pre Question' : $id==14?'Post Question':'Question',
             'link' => base_url('admin/ats/question')
         );
 
@@ -395,7 +418,6 @@ class Admin extends CI_Controller {
             );
             $data['view'] .= '_' . $action;
             $data['course'] = $id;
-
         }
 
         if ($action == 'edit') {
@@ -486,11 +508,12 @@ class Admin extends CI_Controller {
             'custom' => array(
                 'text' => 'Homepage',
                 'link' => base_url('home'),
-                'glyph' => 'glyphicon glyphicon-home'
+                'glyph' => 'glyphicon glyphicon-home',
+                'function' => ''
             ),
             'breadcrumb' => array(array(
                 'text' => 'Admin CP',
-                'link'=>base_url('admin')
+                'link' => base_url('admin')
             ))
         );
     }

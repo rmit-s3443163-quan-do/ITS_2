@@ -22,6 +22,7 @@ switch ($topbar_selected) {
         $result = 'selected';
         break;
 }
+
 ?>
 
 <div class="col-xs-9 col-sm-11 a-content">
@@ -43,7 +44,7 @@ switch ($topbar_selected) {
                 </div>
                 <div class="sub-panel pull-right">
                     <span class="<?= $custom['glyph'] ?>"></span>
-                    <a style="color: white" href="<?= $custom['link'] ?>"><?= $custom['text'] ?></a>
+                    <a onclick="<?= $custom['function'] ?>" style="color: white" href="<?= $custom['link'] ?>"><?= $custom['text'] ?></a>
                 </div>
             </div>
 
