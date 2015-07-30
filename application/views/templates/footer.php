@@ -18,11 +18,7 @@
     </div>
 </footer>
 
+<script src="<?= asset_url() ?>js/script.js"></script>
 
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
 </body>
 </html>

@@ -17,6 +17,8 @@ class Admin extends CI_Controller {
 
         $this->load->model('user_m');
         $this->load->model('course_m');
+        $this->load->model('offering_m');
+        $this->load->model('topic_m');
         $this->load->model('question_m');
         $this->load->model('quecou_m');
         $this->load->model('quetag_m');
@@ -161,7 +163,8 @@ class Admin extends CI_Controller {
                     echo 'notok::404 Question not found!';
                 break;
             case 'update':
-                if ($this->input->post('text')) {
+                if ($this->input->post(NULL, true)) {
+                    $question_id = $this->input->post('id');
                     $data = [
                         'id' => $this->input->post('id'),
                         'text' => htmlspecialchars($this->input->post('text'))
@@ -169,8 +172,65 @@ class Admin extends CI_Controller {
 
                     $this->question_m->update($data);
 
-                    $this->index();
+                    // delete all the old tags of this question
+                    $data = array(
+                        'question_id' => $question_id,
+                    );
+                    $this->quetag_m->delete($data);
+
+                    if ($this->input->post('tags')) {
+
+                        $arr = explode(';', $this->input->post('tags'));
+
+                        foreach ($arr as $tag) {
+                            if ($tag != '') {
+
+                                // if tag not exist then add
+                                if (!$tag_id = $this->tag_m->has(array('text' => $tag))) {
+                                    $data = array(
+                                        'text' => htmlspecialchars($tag)
+                                    );
+                                    if ($tag_id = $this->tag_m->add($data)) {
+                                    }
+                                }
+
+                                // add quetag
+                                $data = array(
+                                    'question_id' => $question_id,
+                                    'tag_id' => $tag_id
+                                );
+                                if ($quetag_id = $this->quetag_m->add($data)) {
+                                }
+                            }
+                        }
+                    }
+
+                    // delete all the old courses of this question
+                    $data = array(
+                        'question_id' => $this->input->post('id'),
+                    );
+                    $this->quecou_m->delete($data);
+
+                    if ($this->input->post('courses')) {
+
+                        $arr = explode(';', $this->input->post('courses'));
+
+                        foreach ($arr as $course) {
+                            $course_id = $this->course_m->has($course);
+                            $data = array(
+                                'question_id' => $question_id,
+                                'course_id' => $course_id
+                            );
+
+                            if ($quecou_id = $this->quecou_m->add($data)) {
+                            }
+                        }
+
+                    }
+
+
                 }
+                $this->index();
                 break;
 
             case 'add':
@@ -215,7 +275,7 @@ class Admin extends CI_Controller {
                         else
                             $correct = $this->input->post('correct') == $i ? 1 : 0;
 
-                        echo 'correct: ' . $correct . '<br/>';
+//                        echo 'correct: ' . $correct . '<br/>';
                         $data = array(
                             'question_id' => $question_id,
                             'text' => htmlspecialchars($this->input->post('option_' . $i)),
@@ -263,6 +323,7 @@ class Admin extends CI_Controller {
 
                     }
 
+                    // add course
                     if ($course_id = $this->input->post('course')) {
                         $data = array(
                             'question_id' => $question_id,
@@ -325,6 +386,114 @@ class Admin extends CI_Controller {
         }
     }
 
+    public function course($action = 'view', $id = 0) {
+        if (isAdmin()) {
+            if ($action == 'add') {
+
+                if ($this->input->post('text')) {
+                    $data = [
+                        'text' => $this->input->post('text'),
+                        'description' => $this->input->post('description'),
+                        'show' => 1
+                    ];
+                    if ($course_id = $this->course_m->add($data))
+                        echo $this->view_course($course_id);
+                }
+
+            } else if ($action == 'update') {
+
+                $data = ['id' => $id];
+                if ($this->input->post('data')) {
+                    $index = explode('::', $this->input->post('data'))[0];
+                    $value = explode('::', $this->input->post('data'))[1];
+
+                    $data[$index] = $value;
+
+                    echo $index.'-'.$value;
+
+                    $this->course_m->update($data);
+                }
+
+            }
+        } else
+            $this->index();
+
+    }
+
+    public function offering($action = 'view', $id = 0) {
+        if (isAdmin()) {
+            if ($action == 'add') {
+
+                if ($text = $this->input->post('text')) {
+                    $start = strtotime(str_replace('/', '-', $this->input->post('start')));
+                    $end = strtotime(str_replace('/', '-', $this->input->post('end')));
+
+                    $data = [
+                        'course_id' => $id,
+                        'text' => $text,
+                        'start_date' => $start,
+                        'end_date' => $end
+                    ];
+
+                    if ($this->offering_m->add($data))
+                        echo $this->view_offering($id);
+                }
+
+            } else if ($action == 'update') {
+                $data = ['id' => $id];
+
+                if ($this->input->post('data')) {
+                    $index = explode('::', $this->input->post('data'))[0];
+                    $value = explode('::', $this->input->post('data'))[1];
+
+                    if ($index == 'start_date' || $index == 'end_date') {
+                        $value =  strtotime(str_replace('/', '-', $value));
+                    }
+
+                    $data[$index] = $value;
+
+                    $this->offering_m->update($data);
+                }
+
+            }
+        } else
+            $this->index();
+
+    }
+
+    public function topic($action = 'view', $id = 0) {
+        if (isAdmin()) {
+
+            if ($action == 'add') {
+
+                if ($text = $this->input->post('text')) {
+                    $data = [
+                        'offering_id' => $id,
+                        'text' => $text
+                    ];
+
+                    if ($this->topic_m->add($data))
+                        echo $this->view_topic($id);
+                }
+
+            } else if ($action == 'update') {
+
+                $data = ['id' => $id];
+
+                if ($this->input->post('data')) {
+                    $index = explode('::', $this->input->post('data'))[0];
+                    $value = explode('::', $this->input->post('data'))[1];
+
+                    $data[$index] = $value;
+
+                    $this->topic_m->update($data);
+                }
+            }
+        } else
+            $this->index();
+
+    }
+
     public function content($top = 'hierarchy') {
         if (isAdmin()) {
             $data = $this->getDefaultData('content', $top);
@@ -346,7 +515,69 @@ class Admin extends CI_Controller {
 
     private function view_content_hierarchy($data) {
         $data['page_title'] = 'ITS Admin CP - ATS Manager - Hierarchy';
+
+        $cs = $this->course_m->get(array('show' => 1));
+
+        $courses = [];
+        foreach ($cs as $course) {
+            $courses[] = $this->view_course($course->id);
+        }
+
+        $data['courses_view'] = $courses;
+
         return $data;
+    }
+
+    public function view_course($id = 15) {
+        if (isAdmin()) {
+
+            $course = $this->course_m->get(['id' => $id]);
+
+            if ($course) {
+                $course = $course[0];
+                $data = array(
+                    'course' => $course,
+                    'offerings' => $this->view_offering($course->id)
+                );
+                return $this->load->view('templates/a_course', $data, true);
+            }
+
+        } else
+            $this->index();
+    }
+
+    public function view_offering($id = 15) {
+
+        if (isAdmin()) {
+            $off = $this->offering_m->get(['course_id' => $id]);
+            if ($off) {
+
+                $data = [
+                    'offerings' => $off,
+                    'topics' => $this->view_topic($off[0]->id)
+                ];
+
+                return $this->load->view('templates/a_offering', $data, true);
+            }
+        } else
+            $this->index();
+
+    }
+
+    public function view_topic($id) {
+
+        if (isAdmin()) {
+            $top = $this->topic_m->get(['offering_id' => $id]);
+            if ($top) {
+                $data = [
+                    'offering_id' => $id,
+                    'topics' => $top
+                ];
+                return $this->load->view('templates/a_topic', $data, true);
+            }
+        } else
+            $this->index();
+
     }
 
     private function view_content_question($data) {
@@ -385,7 +616,7 @@ class Admin extends CI_Controller {
     private function view_ats_question($data, $action = '', $id = 13) {
         $data['page_title'] = 'ITS Admin CP - ATS Manager - Question';
         $data['breadcrumb'][] = array(
-            'text' => $id == 13 ? 'Pre Question' : $id==14?'Post Question':'Question',
+            'text' => $id == 13 ? 'Pre Question' : $id == 14 ? 'Post Question' : 'Question',
             'link' => base_url('admin/ats/question')
         );
 

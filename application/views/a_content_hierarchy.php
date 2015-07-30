@@ -5,147 +5,162 @@
  * Date: 23/07/15
  * Time: 5:40 PM
  */
+
+$count = 0;
+
 ?>
 
 
-    <div class="admin-main">
-        <div class="row">
-            <div class="col-xs-3">
-                <div class="panel panel-info">
-                    <div class="panel-heading">Software Engineering
-                        <div class="pull-right small-sub">
-                                    <span class="glyphicon glyphicon-edit"
-                                          data-toggle="tooltip" data-placement="right"
-                                          title="Edit"></span>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <p>This course is designed to impart knowledge and skills necessary to analyse, design
-                            and implement complex software engineering projects.</p>
-                        <hr>
-                        <h4>Offerings</h4>
-                        <ul>
-                            <li>Sem 1, 2015</li>
-                            <li>Sem 2, 2015 <span class="badge pull-right">cur</span></li>
-                        </ul>
-                        <hr>
-                        <h4>Topic List</h4>
-                        <ul>
-                            <li>Week 1</li>
-                            <li>Week 2</li>
-                            <li>Week 3</li>
-                            <li>Week 4</li>
-                            <li>Week 5</li>
-                        </ul>
-                    </div>
+<div class="admin-main">
+    <div class="row">
+        <?php
+        foreach ($courses_view as $cv) {
+            echo $cv;
+            $count++;
+            if ($count%3==0)
+                echo '<div class="clearfix"></div>';
+        }
+        ?>
+        <div class="col-xs-4" id="add-form">
+            <div class="panel-form panel panel-info hidden">
+                <div class="panel-heading">
+                    <input id="course-title" class="title-input form-control" placeholder="course title"/>
+                </div>
+                <div class="panel-body">
+                    <input id="course-desc" class="form-control"
+                           placeholder="course description"/>
+                    <hr>
+                    <button class="btn btn-default btn-small add-done" type="button">Cancel</button>
+                    <button type="button" class="btn btn-primary add-done">
+                        <span class="glyphicon glyphicon-ok"></span> &nbsp;Save
+                    </button>
                 </div>
             </div>
-            <div class="col-xs-3">
-                <div class="panel panel-info">
-                    <div class="panel-heading">Web Programming
-                        <div class="pull-right small-sub">
-                                    <span class="glyphicon glyphicon-edit"
-                                          data-toggle="tooltip" data-placement="right"
-                                          title="Edit"></span>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <p>The course introduces you to the basic concepts of the World Wide Web (Web),
-                            and the principles and tools that are used to develop Web applications.</p>
-                        <hr>
-                        <h5>No Offering for this course yet</h5>
-                        <button type="button" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-plus"></span> &nbsp;Add Offering
-                        </button>
-                    </div>
+            <div class="panel-refresh panel hidden">
+                <div class="panel-body text-center">
+                    <h1><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span></h1>
                 </div>
             </div>
-            <div class="col-xs-3">
-                <div class="panel panel-info">
-                    <div class="panel-heading">Database Concepts
-                        <div class="pull-right small-sub">
-                                    <span class="glyphicon glyphicon-edit"
-                                          data-toggle="tooltip" data-placement="right"
-                                          title="Edit"></span>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <p>Databases and database technology are having a major impact on the growing use of
-                            computers.
-                            They play a critical role in almost all areas where computers are used.</p>
-                        <hr>
-                        <h4>Offerings</h4>
-                        <ul>
-                            <li>
-                                <div id="offer"><a href="#">Sem 2, 2015 (current)</a></div>
-                                <div id="offer-input" class="hidden">
-                                    <input type="text" value="Sem 2, 2015 (current)"/>
-
-                                    <button type="button" class="btn btn-default">
-                                        <span class="glyphicon glyphicon-remove"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-primary">
-                                        <span class="glyphicon glyphicon-ok"></span>
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                        <hr>
-                        <h5>No Topic for this offering yet</h5>
-                        <button type="button" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-plus"></span> &nbsp;Add Topic
-                        </button>
-                    </div>
+            <div class="panel panel-add">
+                <div class="panel-body text-center">
+                    <h1><span class="glyphicon glyphicon-plus"></span></h1>
+                    <h5>New Course</h5>
                 </div>
             </div>
-            <div class="col-xs-3 hidden" id="add-form">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <input id="course-title" class="title-input form-control" placeholder="course title"/>
-                    </div>
-                    <div class="panel-body">
-                        <textarea class="form-control" rows="3" placeholder="course description"></textarea>
-                        <hr>
-                        <button class="btn btn-default btn-small add-done" type="button">Cancel</button>
-                        <button type="button" class="btn btn-primary add-done">
-                            <span class="glyphicon glyphicon-ok"></span> &nbsp;Save
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-3" id="add-button">
-                <div class="panel panel-add">
-                    <div class="panel-body text-center">
-                        <h1><span class="glyphicon glyphicon-plus"></span></h1>
-                        <h5>New Course</h5>
-                    </div>
-                </div>
-            </div>
-
         </div>
+        <div class="col-xs-4" id="add-button">
+        </div>
+
     </div>
 </div>
 </div>
+</div>
+
+<div class="modal fade offering-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">New Offering</div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="modal-text">Text</label>
+                            <input name="offer-text" type="text" class="form-control" id="offer-text" placeholder="Sem 2, 2015; etc..">
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="modal-start">Start Date</label>
+                            <input name="offer-start" type="text" class="form-control" id="offer-start" placeholder="dd-mm-yyyy">
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="modal-end">End Date</label>
+                            <input name="offer-end" type="text" class="form-control" id="offer-end" placeholder="dd-mm-yyyy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button id="offering-save" type="button" class="btn btn-primary"  data-dismiss="modal">
+                    <span id="<?= base_url('admin/offering/add') ?>/" class="glyphicon glyphicon-ok"></span> Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade topic-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">Add Topic</div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="modal2-text">Text</label>
+                    <input name="topic-text" type="text" class="form-control" id="topic-text" placeholder="Week 1, practice, etc..">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button id="topic-save" type="button" class="btn btn-primary" data-dismiss="modal">
+                    <span id="<?= base_url('admin/topic/add') ?>/" class="glyphicon glyphicon-ok"></span> Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade mass-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">Mass Enrol</div>
+            <div class="modal-body">
+                <textarea rows="5" class="form-control" name="users" placeholder="input students email list here"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-ok"></span> Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
-    $('#offer-input button').click(function () {
-        $('#offer-input').addClass('hidden');
-        $('#offer').removeClass('hidden');
-    });
 
-    $('#offer').click(function () {
-        $(this).addClass('hidden');
-        $('#offer-input').removeClass('hidden');
-    });
-
-    $('#add-button').click(function () {
-        $(this).addClass('hidden');
-        $('#add-form').removeClass('hidden');
+    $('.panel-add').click(function () {
+        var af = $('#add-form');
+        af.find('.panel-form').removeClass('hidden');
+        af.find('.panel-add').addClass('hidden');
+        af.find('.panel-refresh').addClass('hidden');
         $('#course-title').focus();
     });
 
     $('.add-done').click(function () {
-        $('#add-form').addClass('hidden');
-        $('#add-button').removeClass('hidden');
+
+        var text = $('#course-title').val();
+        var desc = $('#course-desc').val();
+        var af = $('#add-form');
+        $.ajax({
+            type: "POST",
+            url: '<?= base_url('admin/course/add') ?>',
+            dataType: 'json',
+            data: {text: text, description: desc},
+            beforeSend: function () {
+                af.find('.panel-form').addClass('hidden');
+                af.find('.panel-refresh').removeClass('hidden');
+            },
+            complete: function (data) {
+                af.before(data.responseText);
+                click2();
+                $('#course-title').val('');
+                $('#course-desc').val('')
+                af.find('.panel-form').addClass('hidden');
+                af.find('.panel-add').removeClass('hidden');
+                af.find('.panel-refresh').addClass('hidden');
+
+            }
+        });
     });
 
 </script>

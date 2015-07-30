@@ -138,3 +138,5 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array();
+
+date_default_timezone_set('australia/melbourne');

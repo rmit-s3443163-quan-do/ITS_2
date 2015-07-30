@@ -8,27 +8,15 @@
  */
 class course_m extends CI_Model {
 
-    public function getAll() {
-
-        $this->db->select('*');
-        $this->db->from('course');
-
-        $query = $this->db->get();
-
-        return ($query->num_rows() > 0) ? $query->result() : false;
-
-    }
-
     public function get($data) {
 
         $this->db->select('*');
         $this->db->from('course');
         $this->db->where($data);
-        $this->db->limit(1);
 
         $query = $this->db->get();
 
-        return ($query->num_rows() == 1) ? $query->result()[0] : false;
+        return ($query->num_rows() > 0) ? $query->result() : false;
 
     }
 
@@ -53,15 +41,11 @@ class course_m extends CI_Model {
         return false;
     }
 
-    public function update($id, $text) {
+    public function update($data) {
 
-        $data = array(
-            'text' => $text
-        );
-
-        $this->db->where('id', $id);
+        $this->db->where('id', $data['id']);
         $this->db->update('course', $data);
-        return ($this->db->affected_rows() > 0)?true:false;
+        return ($this->db->affected_rows() > 0);
 
     }
 
@@ -70,7 +54,7 @@ class course_m extends CI_Model {
         $this->db->where('id', $id);
         $this->db->delete('course');
 
-        return ($this->db->affected_rows() > 0)?true:false;
+        return ($this->db->affected_rows() > 0);
 
     }
 }

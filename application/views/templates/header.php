@@ -36,6 +36,7 @@
     <script src="<?= asset_url() ?>tools/js/summernote.min.js"></script>
     <script src="<?= asset_url() ?>tools/js/chart.min.js"></script>
 
+
 </head>
 <body>
 <div id="loadingbar-frame"></div>

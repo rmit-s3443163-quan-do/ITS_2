@@ -290,11 +290,15 @@ html, body {
     padding-bottom: 20px;
 }
 
-.panel-add {
+.panel-refresh, .panel-add {
     border: 2px dotted lightgray;
     color: #7A7A7A;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.panel-add {
     cursor: pointer;
-    /* background-color: lightgray; */
 }
 
 .panel, .panel * {
@@ -474,7 +478,7 @@ footer {
 }
 
 .admin-main input.form-control, .admin-main select.form-control  {
-    height: 42px;
+     height: 42px;
 }
 
 .admin-main .form-control {
@@ -623,4 +627,42 @@ a.add_response {
 @keyframes spin {
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
+}
+
+.course-panel h4 {
+    /*border-bottom: 1px dashed lightgray;*/
+    padding: 5px;
+    margin-bottom: 15px;
+    background-color: rgba(211, 211, 211, 0.29);
+    font-size: 16px;
+}
+
+.course-panel h4 .glyphicon {
+    /* border: 1px solid gray; */
+    font-size: 14px;
+    color: #497249;
+}
+.course-panel h4 .glyphicon:hover {
+    color: green;
+}
+
+.course-panel hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#course-title {
+    padding: 0;
+    height: auto;
+}
+
+.click2input {
+    background-color: rgba(255, 255, 255, 0.43);
+    border: 0;
+    padding: 0;
+    width: 80%;
+}
+
+.click2:hover {
+    background-color: rgba(178, 241, 185, 0.52);
 }
