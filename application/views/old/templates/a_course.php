@@ -32,10 +32,9 @@
             <div class="offer-add-here">
                 <?= $offerings ?>
 
-                <? if (count($offerings) == 0): ?>
-
+                <?php if (count($offerings) == 0): ?>
                     no offering for this course yet
-                <? endif; ?>
+                <?php endif; ?>
             </div>
         </div>
     </div>

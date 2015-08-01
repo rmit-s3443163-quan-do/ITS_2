@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * Created by PhpStorm.
  * User: JayDz
@@ -52,15 +52,15 @@ switch ($topbar_selected) {
     </div>
     <div class="bc">
         <ol class="breadcrumb">
-            <? foreach ($breadcrumb as $index => $bc): ?>
-                <? if ($index < count($breadcrumb)-1): ?>
+            <?php foreach ($breadcrumb as $index => $bc): ?>
+                <?php if ($index < count($breadcrumb)-1): ?>
                     <li><a href="<?= $bc['link'] ?>">
                             <?= $bc['text'] ?>
                         </a>
                     </li>
-                <? else: ?>
+                <?php else: ?>
                     <li class="active"><?= $bc['text'] ?></li>
-                <? endif ?>
-            <? endforeach; ?>
+                <?php endif ?>
+            <?php endforeach; ?>
         </ol>
     </div>

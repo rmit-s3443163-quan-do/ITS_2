@@ -7,7 +7,7 @@
  */
 ?>
 <dl>
-    <? foreach ($offerings as $off): ?>
+    <?php foreach ($offerings as $index=>$off): ?>
         <dt>
         <span class="click2">
             <?= $off->text ?>
@@ -31,7 +31,7 @@
             <input type="hidden" name="end_date" value="<?= base_url('admin/offering/update/' . $off->id) ?>"/>
         </span>
         </dd>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 </dl>
 <button id="mass2::<?= $offerings[0]->id ?>" type="button" class="btn btn-default btn-sm btn-mass-enrol">
     <span class="glyphicon glyphicon-plus"></span> &nbsp;Mass Enrol
@@ -46,7 +46,7 @@
 </h4>
 <div class="topic-add-here">
     <?= $topics ?>
-    <? if (count($topics) == 0): ?>
+    <?php if (count($topics) == 0): ?>
         no topic for this offering yet
-    <? endif; ?>
+    <?php endif; ?>
 </div>

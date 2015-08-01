@@ -32,7 +32,7 @@ $count = 0;
                     <hr>
                     <button class="btn btn-default btn-small add-done" type="button">Cancel</button>
                     <button type="button" class="btn btn-primary add-done">
-                        <span class="glyphicon glyphicon-ok"></span> &nbsp;Save
+                        <span id="" class="glyphicon glyphicon-ok"></span> &nbsp;Save
                     </button>
                 </div>
             </div>

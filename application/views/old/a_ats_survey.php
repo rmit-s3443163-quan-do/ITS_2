@@ -27,7 +27,7 @@
             </tfoot>
 
             <tbody>
-            <? foreach ($surveys as $index => $survey): ?>
+            <?php foreach ($surveys as $index=>$survey): ?>
                 <tr id="tr_<?= $survey->id ?>">
                     <td><?= $index + 1 ?></td>
                     <td>
@@ -65,7 +65,7 @@
                         </script>
                     </td>
                 </tr>
-            <? endforeach; ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
         <input type="hidden" id="end-flag" value="<?= count($surveys) ?>"/>

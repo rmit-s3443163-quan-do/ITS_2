@@ -19,7 +19,7 @@ class option_m extends CI_Model {
 
     }
 
-    public function get($data) {
+    public function get($data=[]) {
 
         $this->db->select('*');
         $this->db->from('option');
@@ -40,9 +40,9 @@ class option_m extends CI_Model {
         
     }
 
-    public function update($id, $data) {
+    public function update($data) {
 
-        $this->db->where('id', $id);
+        $this->db->where('id', $data['id']);
         $this->db->update('option', $data);
         return ($this->db->affected_rows() > 0)?true:false;
 

@@ -19,16 +19,15 @@ class question_m extends CI_Model {
 
     }
 
-    public function get($data) {
+    public function get($data=[]) {
 
         $this->db->select('*');
         $this->db->from('question');
         $this->db->where($data);
-        $this->db->limit(1);
 
         $query = $this->db->get();
 
-        return ($query->num_rows() == 1) ? $query->result()[0] : false;
+        return ($query->num_rows() > 0) ? $query->result() : false;
         
     }
 

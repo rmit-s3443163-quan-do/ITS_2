@@ -7,7 +7,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">View Question: <?= $question->id ?></h4> (click text to edit)<? $url; ?>
+                <h4 class="modal-title">View Question: <?= $question->id ?></h4> (click text to edit)<?php $url; ?>
 
                 <input type="hidden" name="id" value="<?= $question->id ?>"/>
             </div>
@@ -21,16 +21,16 @@
                         <input type="hidden" name="text"/>
                     </div>
                     <hr/>
-                    <? foreach ($options as $index => $opt) : ?>
+                    <?php foreach ($options as $index => $opt) : ?>
 
                         <div class="form-group">
 
                             <label class="control-label">Option <?= $index + 1 ?>:</label>
-                            <? if ($opt->correct == 1): ?><span class="correct">is correct answer. <span
+                            <?php if ($opt->correct == 1): ?><span class="correct">is correct answer. <span
                                     class="glyphicon glyphicon-ok"></span></span>
-                            <? else: ?><span class="incorrect">is incorrect answer. <span
+                            <?php else: ?><span class="incorrect">is incorrect answer. <span
                                     class="glyphicon glyphicon-remove"></span></span>
-                            <? endif; ?>
+                            <?php endif; ?>
 
                             <div>
                                 <span class="question_edit"><?= htmlspecialchars_decode($opt->text) ?></span>
@@ -44,36 +44,23 @@
                                 <input type="hidden" name="explain_<?= $opt->id ?>"/>
                             </div>
                         </div>
-                    <? endforeach; ?>
+                    <?php endforeach; ?>
                     <hr/>
                     <div class="form-group">
                         <label class="control-label">Tag/s:</label>
 
                         <div class="question_edit">
-                            <? if (count($tags) == 0): ?>
+                            <?php if (count($tags) == 0): ?>
                                 not set yet
-                            <? else: ?>
-                                <? foreach ($tags as $index => $tag) : ?>
+                            <?php else: ?>
+                                <?php foreach ($tags as $tag) : ?>
                                     <?= $tag->text ?>;
-                                <? endforeach; ?>
-                            <? endif; ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                         <input type="hidden" name="tags"/>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label">Course/s:</label>
 
-                        <div class="question_edit">
-                            <? if (count($courses) == 0): ?>
-                                not set yet
-                            <? else: ?>
-                                <? foreach ($courses as $index => $course) : ?>
-                                    <?= $course->text ?>;
-                                <? endforeach; ?>
-                            <? endif; ?>
-                        </div>
-                        <input type="hidden" name="courses"/>
-                    </div>
 
                 </form>
             </div>

@@ -19,7 +19,7 @@ class topic_m extends CI_Model {
 
     }
 
-    public function get($data) {
+    public function get($data=[]) {
 
         $this->db->select('*');
         $this->db->from('topic');

@@ -8,18 +8,7 @@
  */
 class offering_m extends CI_Model {
 
-    public function getAll() {
-
-        $this->db->select('*');
-        $this->db->from('offering');
-
-        $query = $this->db->get();
-
-        return ($query->num_rows() > 0) ? $query->result() : false;
-
-    }
-
-    public function get($data) {
+    public function get($data=[]) {
 
         $this->db->select('*');
         $this->db->from('offering');

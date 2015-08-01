@@ -205,23 +205,6 @@
             $('#add-button').removeClass('hidden');
         });
 
-
-//        $('.sub-menu').hover(function () {
-//            snabbt($(this).find('span'), {
-//                fromPosition: [0, 0, 0],
-//                position: [0, -3, 0],
-//                easing: 'ease',
-//                duration: 100
-//            });
-//        }, function () {
-//            snabbt($(this).find('span'), {
-//                fromPosition: [0, -3, 0],
-//                position: [0, 0, 0],
-//                easing: 'ease',
-//                duration: 100
-//            });
-//        });
-
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
         })

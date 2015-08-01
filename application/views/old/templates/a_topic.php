@@ -9,8 +9,8 @@
 ?>
 <ul>
 
-    <? foreach ($topics as $top): ?>
+    <?php foreach ($topics as $top): ?>
         <li><a href="<?= base_url('admin/content/topic/' . $top->id) ?>"><?= $top->text ?><span
                     class="badge pull-right">10</span></a></li>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 </ul>

@@ -9,50 +9,56 @@ var cur_edit = '';
 
 click2();
 
+$(".modal").on('shown.bs.modal', function () {
+    $(this).find("input:first").focus();
+});
+
+$('#offering-save').click(function () {
+    var course_id = offer.attr('id').split('::')[1];
+
+    var text = $('#offer-text').val();
+    var start = $('#offer-start').val();
+    var end = $('#offer-end').val();
+    var url = $(this).children('span').attr('id') + course_id;
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        dataType: 'json',
+        data: {
+            text: text,
+            start: start,
+            end: end
+        },
+        complete: function (data) {
+            offer.closest('h4').siblings('.offer-add-here').html(data.responseText);
+            click2();
+        }
+    });
+});
+
+$('#topic-save').click(function () {
+    var offering = topic.attr('id').split('::')[1];
+
+    var text = $('#topic-text').val();
+    var url = $(this).children('span').attr('id') + offering;
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        dataType: 'json',
+        data: {
+            text: text
+        },
+        complete: function (data) {
+            topic.closest('h4').siblings('.topic-add-here').html(data.responseText);
+            click2();
+        }
+    });
+});
+
 function click2() {
-    $('#offering-save').click(function () {
-        var course_id = offer.attr('id').split('::')[1];
 
-        var text = $('#offer-text').val();
-        var start = $('#offer-start').val();
-        var end = $('#offer-end').val();
-        var url = $(this).children('span').attr('id') + course_id;
-
-        $.ajax({
-            type: "POST",
-            url: url,
-            dataType: 'json',
-            data: {
-                text: text,
-                start: start,
-                end: end
-            },
-            complete: function (data) {
-                offer.closest('h4').siblings('.offer-add-here').html(data.responseText);
-                click2();
-            }
-        });
-    });
-
-    $('#topic-save').click(function () {
-        var offering = topic.attr('id').split('::')[1];
-
-        var text = $('#topic-text').val();
-        var url = $(this).children('span').attr('id') + offering;
-
-        $.ajax({
-            type: "POST",
-            url: url,
-            dataType: 'json',
-            data: {
-                text: text
-            },
-            complete: function (data) {
-                topic.closest('h4').siblings('.topic-add-here').html(data.responseText);
-                click2();
-            }
-        });
-    });
 
     $('.btn-add-offering').click(function () {
         offer = $(this);
@@ -66,11 +72,6 @@ function click2() {
     $('.btn-mass-enrol').click(function () {
         cur_mass = $(this).attr('id');
         $('.mass-modal').modal('show');
-    });
-
-
-    $(".modal").on('shown.bs.modal', function () {
-        $(this).find("input:first").focus();
     });
 
     var c2 = $('.click2');

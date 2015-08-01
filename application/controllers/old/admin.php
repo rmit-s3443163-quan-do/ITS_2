@@ -409,7 +409,7 @@ class Admin extends CI_Controller {
 
                     $data[$index] = $value;
 
-                    echo $index.'-'.$value;
+                    echo $index . '-' . $value;
 
                     $this->course_m->update($data);
                 }
@@ -447,7 +447,7 @@ class Admin extends CI_Controller {
                     $value = explode('::', $this->input->post('data'))[1];
 
                     if ($index == 'start_date' || $index == 'end_date') {
-                        $value =  strtotime(str_replace('/', '-', $value));
+                        $value = strtotime(str_replace('/', '-', $value));
                     }
 
                     $data[$index] = $value;
@@ -742,10 +742,12 @@ class Admin extends CI_Controller {
                 'glyph' => 'glyphicon glyphicon-home',
                 'function' => ''
             ),
-            'breadcrumb' => array(array(
-                'text' => 'Admin CP',
-                'link' => base_url('admin')
-            ))
+            'breadcrumb' => array(
+                array(
+                    'text' => 'Admin CP',
+                    'link' => base_url('admin')
+                )
+            )
         );
     }
 
@@ -758,7 +760,6 @@ class Admin extends CI_Controller {
     }
 
     private function log($text) {
-        date_default_timezone_set('australia/melbourne');
 
         $string = '[' . date('G:i d/m/y') . '] ' . $text . ' by ' . $this->user_m->getName($this->auth->userid());
 

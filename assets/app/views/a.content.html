@@ -1,0 +1,12 @@
+<h1>Dashboard</h1>
+
+<div>
+    <input type="text" data-ng-model="filter_text"/>
+</div>
+<div>
+    <ul>
+        <li data-ng-repeat="cou in courses | filter: filter_text">
+            {{ cou.text }}
+        </li>
+    </ul>
+</div>
